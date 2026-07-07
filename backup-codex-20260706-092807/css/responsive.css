@@ -1,0 +1,1456 @@
+/* ==========================================================
+        RESPONSIVE.CSS
+        PART 1
+        Laptop & Tablet Landscape
+========================================================== */
+
+
+/* ==========================================================
+                    MAX WIDTH 1200px
+========================================================== */
+
+@media screen and (max-width:1200px){
+
+    .container{
+
+        width:92%;
+
+    }
+
+    section{
+
+        padding:90px 0;
+
+    }
+
+    .section-title h2{
+
+        font-size:38px;
+
+    }
+
+    /* HERO */
+
+    .hero-content h1{
+
+        font-size:58px;
+
+    }
+
+    .hero-content p{
+
+        font-size:17px;
+
+        line-height:30px;
+
+    }
+
+    /* PRODUK EKSKLUSIF */
+
+    .exclusive-grid{
+
+        gap:25px;
+
+    }
+
+    .exclusive-card.large{
+
+        min-height:600px;
+
+    }
+
+    .card-content h3{
+
+        font-size:30px;
+
+    }
+
+    /* PRODUK */
+
+    .product-grid{
+
+        grid-template-columns:repeat(3,1fr);
+
+    }
+
+    /* ABOUT */
+
+    .business-wrapper{
+
+        gap:45px;
+
+    }
+
+    .about-grid{
+
+        gap:45px;
+
+    }
+
+    /* WHY JOIN */
+
+    .join-grid{
+
+        grid-template-columns:repeat(3,1fr);
+
+        gap:25px;
+
+    }
+
+    .join-card{
+
+        padding:35px 25px;
+
+    }
+
+    /* CONTACT */
+
+    .contact-wrapper{
+
+        gap:35px;
+
+    }
+
+}
+
+
+/* ==========================================================
+                    MAX WIDTH 992px
+========================================================== */
+
+@media screen and (max-width:992px){
+
+    /* SECTION */
+
+    section{
+
+        padding:80px 0;
+
+    }
+
+    .section-title{
+
+        margin-bottom:55px;
+
+    }
+
+    .section-title h2{
+
+        font-size:34px;
+
+    }
+
+    /* =====================
+            NAVBAR
+    ====================== */
+
+    .navbar-container{
+
+        height:80px;
+
+    }
+
+    #menuToggle{
+
+        display:flex;
+
+    }
+
+    .nav-menu{
+
+        position:fixed;
+
+        top:80px;
+
+        right:-100%;
+
+        width:300px;
+
+        height:calc(100vh - 80px);
+
+        background:#003B73;
+
+        flex-direction:column;
+
+        justify-content:flex-start;
+
+        align-items:flex-start;
+
+        padding:35px;
+
+        gap:0;
+
+        transition:.4s;
+
+        overflow-y:auto;
+
+        z-index:999;
+
+    }
+
+    .nav-menu.active{
+
+        right:0;
+
+    }
+
+    .nav-menu li{
+
+        width:100%;
+
+        border-bottom:1px solid rgba(255,255,255,.08);
+
+    }
+
+    .nav-menu li a{
+
+        display:flex;
+
+        justify-content:space-between;
+
+        width:100%;
+
+        padding:18px 0;
+
+    }
+
+    .dropdown-menu{
+
+        position:static;
+
+        width:100%;
+
+        opacity:1;
+
+        visibility:visible;
+
+        display:none;
+
+        margin-bottom:15px;
+
+        background:rgba(255,255,255,.08);
+
+        box-shadow:none;
+
+        border-radius:12px;
+
+    }
+
+    .dropdown.active .dropdown-menu{
+
+        display:block;
+
+    }
+
+    .dropdown-menu li a{
+
+        color:#fff;
+
+        padding:14px 18px;
+
+    }
+
+    .login-btn{
+
+        margin-top:25px;
+
+        width:100%;
+
+        text-align:center;
+
+        justify-content:center;
+
+    }
+
+    /* =====================
+            HERO
+    ====================== */
+
+    .hero{
+
+        height:90vh;
+
+    }
+
+    .hero-content{
+
+        max-width:100%;
+
+    }
+
+    .hero-content h1{
+
+        font-size:48px;
+
+    }
+
+    .hero-content p{
+
+        max-width:100%;
+
+    }
+
+    .hero-navigation{
+
+        padding:0 20px;
+
+    }
+
+    .hero-prev,
+    .hero-next{
+
+        width:50px;
+
+        height:50px;
+
+    }
+
+    /* =====================
+        PRODUK EKSKLUSIF
+    ====================== */
+
+    .exclusive-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .exclusive-right{
+
+        grid-template-columns:repeat(2,1fr);
+
+        gap:20px;
+
+    }
+
+    .exclusive-card.large{
+
+        min-height:450px;
+
+    }
+
+    .exclusive-card{
+
+        min-height:260px;
+
+    }
+
+    /* =====================
+            PRODUK
+    ====================== */
+
+    .best-header{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+    .product-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    /* =====================
+        BUSINESS
+    ====================== */
+
+    .business-wrapper{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .business-image img{
+
+        height:450px;
+
+    }
+
+    /* =====================
+            ABOUT
+    ====================== */
+
+    .about-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .about-image img{
+
+        height:450px;
+
+    }
+
+    .about-tabs{
+
+        gap:12px;
+
+    }
+
+    .tab-button{
+
+        padding:13px 24px;
+
+        font-size:14px;
+
+    }
+
+    /* =====================
+        WHY JOIN
+    ====================== */
+
+    .join-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    /* =====================
+        TESTIMONI
+    ====================== */
+
+    .testimonial-card{
+
+        padding:40px;
+
+    }
+
+    /* =====================
+        JOIN BANNER
+    ====================== */
+
+    .join-banner h2{
+
+        font-size:40px;
+
+    }
+
+    .join-banner p{
+
+        font-size:16px;
+
+    }
+
+    /* =====================
+        CONTACT
+    ====================== */
+
+    .contact-wrapper{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .contact-form{
+
+        order:2;
+
+    }
+
+    .contact-info{
+
+        order:1;
+
+    }
+
+    /* =====================
+        FOOTER
+    ====================== */
+
+    .footer-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+        gap:40px;
+
+    }
+
+}
+/* ==========================================================
+        RESPONSIVE
+        PART 2
+        TABLET (768px)
+========================================================== */
+
+@media screen and (max-width:768px){
+
+    /* ======================
+            GLOBAL
+    ======================= */
+
+    section{
+
+        padding:70px 0;
+
+    }
+
+    .container{
+
+        width:94%;
+
+    }
+
+    .section-title{
+
+        margin-bottom:45px;
+
+    }
+
+    .section-title h2{
+
+        font-size:30px;
+
+        line-height:42px;
+
+    }
+
+    .section-title p{
+
+        font-size:15px;
+
+        line-height:28px;
+
+    }
+
+    /* ======================
+            NAVBAR
+    ======================= */
+
+    .logo img{
+
+        width:140px;
+
+    }
+
+    .nav-menu{
+
+        width:100%;
+
+    }
+
+    /* ======================
+            HERO
+    ======================= */
+
+    .hero{
+
+        height:85vh;
+
+    }
+
+    .hero-content{
+
+        text-align:center;
+
+    }
+
+    .hero-content span{
+
+        font-size:15px;
+
+    }
+
+    .hero-content h1{
+
+        font-size:40px;
+
+        line-height:1.25;
+
+    }
+
+    .hero-content p{
+
+        font-size:16px;
+
+        line-height:28px;
+
+        margin-bottom:30px;
+
+    }
+
+    .hero-button{
+
+        justify-content:center;
+
+        flex-direction:column;
+
+        align-items:center;
+
+        gap:15px;
+
+    }
+
+    .hero-button a{
+
+        width:240px;
+
+        justify-content:center;
+
+    }
+
+    .hero-navigation{
+
+        display:none;
+
+    }
+
+    .hero-indicator{
+
+        bottom:20px;
+
+    }
+
+    /* ======================
+        PRODUK EKSKLUSIF
+    ======================= */
+
+    .exclusive-right{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .exclusive-card.large{
+
+        min-height:380px;
+
+    }
+
+    .exclusive-card{
+
+        min-height:260px;
+
+    }
+
+    .card-content{
+
+        left:25px;
+
+        right:25px;
+
+        bottom:25px;
+
+    }
+
+    .card-content h3{
+
+        font-size:28px;
+
+    }
+
+    /* ======================
+        PRODUK
+    ======================= */
+
+    .product-filter{
+
+        gap:12px;
+
+    }
+
+    .filter-btn{
+
+        padding:12px 22px;
+
+        font-size:14px;
+
+    }
+
+    .product-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .product-image{
+
+        height:250px;
+
+    }
+
+    /* ======================
+        BUSINESS
+    ======================= */
+
+    .business-content{
+
+        text-align:center;
+
+    }
+
+    .business-content h2{
+
+        font-size:34px;
+
+    }
+
+    .business-image img{
+
+        height:360px;
+
+    }
+
+    /* ======================
+            ABOUT
+    ======================= */
+
+    .about-tabs{
+
+        justify-content:center;
+
+    }
+
+    .tab-button{
+
+        width:100%;
+
+        text-align:center;
+
+    }
+
+    .about-image img{
+
+        height:360px;
+
+    }
+
+    .about-text{
+
+        text-align:center;
+
+    }
+
+    .about-text ul{
+
+        text-align:left;
+
+        margin-top:25px;
+
+    }
+
+    /* ======================
+        WHY JOIN
+    ======================= */
+
+    .join-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .join-card{
+
+        padding:35px 25px;
+
+    }
+
+    /* ======================
+        TESTIMONI
+    ======================= */
+
+    .testimonial-card{
+
+        padding:35px 25px;
+
+    }
+
+    .testimonial-card img{
+
+        width:100px;
+
+        height:100px;
+
+    }
+
+    .testimonial-card p{
+
+        font-size:15px;
+
+        line-height:28px;
+
+    }
+
+    /* ======================
+        JOIN BANNER
+    ======================= */
+
+    .join-banner{
+
+        padding:70px 0;
+
+    }
+
+    .join-banner h2{
+
+        font-size:34px;
+
+        line-height:1.3;
+
+    }
+
+    .join-banner p{
+
+        font-size:15px;
+
+        line-height:30px;
+
+    }
+
+    /* ======================
+        CONTACT
+    ======================= */
+
+    .contact-form{
+
+        padding:30px;
+
+    }
+
+    .info-card{
+
+        padding:25px;
+
+    }
+
+    .map iframe{
+
+        height:280px;
+
+    }
+
+    /* ======================
+        FOOTER
+    ======================= */
+
+    .footer-grid{
+
+        grid-template-columns:1fr;
+
+        text-align:center;
+
+    }
+
+    .footer-about img{
+
+        margin:0 auto 20px;
+
+    }
+
+    .footer-contact p{
+
+        justify-content:center;
+
+    }
+
+    .social-media{
+
+        justify-content:center;
+
+    }
+
+}
+/* ==========================================================
+        RESPONSIVE
+        PART 3
+        MOBILE (576px)
+========================================================== */
+
+@media screen and (max-width:576px){
+
+    /* ======================
+            GLOBAL
+    ======================= */
+
+    section{
+
+        padding:60px 0;
+
+    }
+
+    .section-title h2{
+
+        font-size:26px;
+
+        line-height:38px;
+
+    }
+
+    .section-title p{
+
+        font-size:14px;
+
+        line-height:26px;
+
+    }
+
+    /* ======================
+            NAVBAR
+    ======================= */
+
+    .navbar-container{
+
+        height:70px;
+
+    }
+
+    .logo img{
+
+        width:130px;
+
+    }
+
+    .nav-menu{
+
+        padding:25px;
+
+    }
+
+    .nav-menu li a{
+
+        font-size:15px;
+
+    }
+
+    /* ======================
+            HERO
+    ======================= */
+
+    .hero{
+
+        height:80vh;
+
+    }
+
+    .hero-content span{
+
+        font-size:13px;
+
+        letter-spacing:1px;
+
+    }
+
+    .hero-content h1{
+
+        font-size:30px;
+
+        line-height:1.3;
+
+    }
+
+    .hero-content p{
+
+        font-size:14px;
+
+        line-height:24px;
+
+    }
+
+    .hero-button a{
+
+        width:100%;
+
+        font-size:14px;
+
+    }
+
+    /* ======================
+        PRODUK EKSKLUSIF
+    ======================= */
+
+    .card-content h3{
+
+        font-size:24px;
+
+    }
+
+    .card-content p{
+
+        font-size:14px;
+
+        line-height:24px;
+
+    }
+
+    .product-label{
+
+        font-size:12px;
+
+    }
+
+    /* ======================
+        PRODUK TERBAIK
+    ======================= */
+
+    .filter-btn{
+
+        width:100%;
+
+        text-align:center;
+
+        font-size:14px;
+
+    }
+
+    .product-info h3{
+
+        font-size:20px;
+
+    }
+
+    .product-info p{
+
+        font-size:14px;
+
+    }
+
+    .product-price{
+
+        font-size:18px;
+
+    }
+
+    /* ======================
+        BUSINESS
+    ======================= */
+
+    .business-content h2{
+
+        font-size:28px;
+
+    }
+
+    .business-content p{
+
+        font-size:14px;
+
+        line-height:26px;
+
+    }
+
+    /* ======================
+            ABOUT
+    ======================= */
+
+    .tab-button{
+
+        font-size:14px;
+
+        padding:12px 18px;
+
+    }
+
+    .about-text h3{
+
+        font-size:24px;
+
+    }
+
+    .about-text p{
+
+        font-size:14px;
+
+        line-height:26px;
+
+    }
+
+    /* ======================
+        WHY JOIN
+    ======================= */
+
+    .join-card{
+
+        padding:30px 20px;
+
+    }
+
+    .join-card h3{
+
+        font-size:20px;
+
+    }
+
+    .join-card p{
+
+        font-size:14px;
+
+        line-height:26px;
+
+    }
+
+    .join-card i{
+
+        width:75px;
+
+        height:75px;
+
+        font-size:30px;
+
+    }
+
+    /* ======================
+        TESTIMONI
+    ======================= */
+
+    .testimonial-card{
+
+        padding:30px 20px;
+
+    }
+
+    .testimonial-card p{
+
+        font-size:14px;
+
+        line-height:26px;
+
+    }
+
+    /* ======================
+        JOIN BANNER
+    ======================= */
+
+    .join-banner h2{
+
+        font-size:28px;
+
+    }
+
+    .join-banner p{
+
+        font-size:14px;
+
+        line-height:26px;
+
+    }
+
+    .join-banner .primary-btn{
+
+        width:100%;
+
+        justify-content:center;
+
+    }
+
+    /* ======================
+        CONTACT
+    ======================= */
+
+    .contact-form{
+
+        padding:25px;
+
+    }
+
+    .form-group input,
+    .form-group textarea{
+
+        padding:14px 16px;
+
+        font-size:14px;
+
+    }
+
+    .info-card h3{
+
+        font-size:18px;
+
+    }
+
+    .info-card p{
+
+        font-size:14px;
+
+    }
+
+    .map iframe{
+
+        height:240px;
+
+    }
+
+    /* ======================
+        FOOTER
+    ======================= */
+
+    .footer-about p{
+
+        font-size:14px;
+
+    }
+
+    .footer-menu a,
+    .footer-information a{
+
+        font-size:14px;
+
+    }
+
+    .footer-bottom p{
+
+        font-size:13px;
+
+    }
+
+}
+/* ==========================================================
+        RESPONSIVE
+        PART 4
+        SMALL MOBILE (≤400px) + FINAL FIX
+========================================================== */
+
+@media screen and (max-width:400px){
+
+    /* ======================
+            GLOBAL FIX
+    ======================= */
+
+    html, body{
+
+        overflow-x:hidden;
+
+    }
+
+    section{
+
+        padding:50px 0;
+
+    }
+
+    .container{
+
+        width:92%;
+
+    }
+
+    /* ======================
+            SECTION TITLE
+    ======================= */
+
+    .section-title h2{
+
+        font-size:22px;
+
+        line-height:32px;
+
+    }
+
+    .section-title span{
+
+        font-size:12px;
+
+    }
+
+    .section-title p{
+
+        font-size:13px;
+
+        line-height:24px;
+
+    }
+
+    /* ======================
+            HERO
+    ======================= */
+
+    .hero{
+
+        height:75vh;
+
+    }
+
+    .hero-content h1{
+
+        font-size:26px;
+
+    }
+
+    .hero-content p{
+
+        font-size:13px;
+
+        line-height:22px;
+
+    }
+
+    /* ======================
+        BUTTON FIX
+    ======================= */
+
+    .primary-btn,
+    .secondary-btn,
+    .white-btn{
+
+        padding:12px 18px;
+
+        font-size:13px;
+
+    }
+
+    /* ======================
+        PRODUK
+    ======================= */
+
+    .product-image{
+
+        height:220px;
+
+    }
+
+    .product-info{
+
+        padding:18px;
+
+    }
+
+    .product-info h3{
+
+        font-size:18px;
+
+    }
+
+    /* ======================
+        EXCLUSIVE CARD
+    ======================= */
+
+    .card-content h3{
+
+        font-size:20px;
+
+    }
+
+    .card-content p{
+
+        font-size:13px;
+
+        line-height:22px;
+
+    }
+
+    /* ======================
+        WHY JOIN
+    ======================= */
+
+    .join-card{
+
+        padding:25px 18px;
+
+    }
+
+    .join-card h3{
+
+        font-size:18px;
+
+    }
+
+    .join-card i{
+
+        width:65px;
+
+        height:65px;
+
+        font-size:26px;
+
+    }
+
+    .join-card p{
+
+        font-size:13px;
+
+        line-height:22px;
+
+    }
+
+    /* ======================
+        TESTIMONI
+    ======================= */
+
+    .testimonial-card{
+
+        padding:25px 15px;
+
+    }
+
+    .testimonial-card img{
+
+        width:80px;
+
+        height:80px;
+
+    }
+
+    .testimonial-card p{
+
+        font-size:13px;
+
+    }
+
+    /* ======================
+        CONTACT
+    ======================= */
+
+    .contact-form{
+
+        padding:20px;
+
+    }
+
+    .form-group input,
+    .form-group textarea{
+
+        font-size:13px;
+
+        padding:12px 14px;
+
+    }
+
+    /* ======================
+        FOOTER
+    ======================= */
+
+    .footer-about p,
+    .footer-menu a,
+    .footer-information a{
+
+        font-size:13px;
+
+    }
+
+    .footer-bottom p{
+
+        font-size:12px;
+
+    }
+
+    /* ======================
+        FIX SPACING OVERFLOW
+    ======================= */
+
+    .hero-content{
+
+        padding:0 10px;
+
+    }
+
+    .business-content h2{
+
+        font-size:24px;
+
+    }
+
+    .join-banner h2{
+
+        font-size:24px;
+
+    }
+
+    .map iframe{
+
+        height:200px;
+
+    }
+
+}

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Detail Produk | MJA Berlian</title>
+
+    <meta name="description"
+        content="Detail Produk MJA Berlian">
+
+    <!-- Google Font -->
+
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+        href="css/style.css">
+
+    <link rel="stylesheet"
+        href="css/responsive.css">
+
+    <link rel="stylesheet"
+        href="css/produk.css">
+
+</head>
+
+<body>
+
+<!-- ==========================================
+                HEADER
+=========================================== -->
+
+<header>
+
+<nav class="navbar">
+
+<div class="container navbar-container">
+
+<a href="index.html"
+class="logo">
+
+<img src="images/logo.png"
+alt="MJA Berlian">
+
+</a>
+
+<ul class="nav-menu">
+
+<li>
+
+<a href="index.html">
+
+Beranda
+
+</a>
+
+</li>
+
+<li>
+
+<a href="index.html#tentang">
+
+Tentang Kami
+
+</a>
+
+</li>
+
+<li>
+
+<a href="index.html#peluang">
+
+Bisnis
+
+</a>
+
+</li>
+
+<li>
+
+<a href="produk.html"
+class="active">
+
+Produk
+
+</a>
+
+</li>
+
+<li>
+
+<a href="index.html#contact">
+
+Kontak
+
+</a>
+
+</li>
+
+</ul>
+
+<div class="nav-right">
+
+<a href="https://office.mjaglobal.net/login" target="_blank" rel="noopener"
+class="login-btn">
+
+<i class="fa-solid fa-user"></i>
+
+Login
+
+</a>
+
+</div>
+
+<div id="menuToggle">
+
+<span></span>
+
+<span></span>
+
+<span></span>
+
+</div>
+
+</div>
+
+</nav>
+
+</header>
+
+<!-- ==========================================
+                HERO
+=========================================== -->
+
+<section class="product-hero">
+
+<div class="hero-overlay"></div>
+
+<div class="container">
+
+<div class="product-hero-content">
+
+<h1 id="productTitle">
+
+Detail Produk
+
+</h1>
+
+<p>
+
+<a href="index.html">
+
+Beranda
+
+</a>
+
+<i class="fa-solid fa-angle-right"></i>
+
+<a href="produk.html">
+
+Produk
+
+</a>
+
+<i class="fa-solid fa-angle-right"></i>
+
+<span id="breadcrumbName">
+
+Detail Produk
+
+</span>
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+            DETAIL PRODUK
+=========================================== -->
+
+<section class="detail-product">
+
+<div class="container">
+
+<div class="detail-wrapper">
+    <!-- ==========================================
+            GAMBAR PRODUK
+=========================================== -->
+
+<div class="detail-image">
+
+    <div class="main-image">
+
+        <img
+            id="detailImage"
+            src=""
+            alt="Produk MJA">
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+            INFORMASI PRODUK
+=========================================== -->
+
+<div class="detail-content">
+
+    <span
+        class="detail-category"
+        id="detailCategory">
+
+        Perhiasan
+
+    </span>
+
+    <h2 id="detailName">
+
+        Nama Produk
+
+    </h2>
+
+    <div class="detail-price"
+        id="detailPrice">
+
+        Rp 0
+
+    </div>
+
+    <div class="detail-code">
+
+        <strong>Kode Produk :</strong>
+
+        <span id="detailCode">
+
+            PD001
+
+        </span>
+
+    </div>
+
+    <div class="detail-description">
+
+        <h3>
+
+            Deskripsi Produk
+
+        </h3>
+
+        <p id="detailDescription">
+
+            Deskripsi produk akan muncul di sini.
+
+        </p>
+
+    </div>
+
+    <!-- Tombol -->
+
+    <div class="detail-action">
+
+        <a
+            id="waButton"
+            href="#"
+            target="_blank"
+            class="primary-btn">
+
+            <i class="fa-brands fa-whatsapp"></i>
+
+            Konsultasi Produk
+
+        </a>
+
+        <a
+            href="produk.html"
+            class="secondary-btn">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Kembali
+
+        </a>
+
+    </div>
+
+</div>
+
+</div>
+
+<!-- End Detail Wrapper -->
+ <div class="product-specification">
+
+    <h2>
+
+        Spesifikasi Produk
+
+    </h2>
+
+    <table class="spec-table">
+
+        <tbody id="specificationTable">
+
+            <!--
+                Semua spesifikasi
+                akan dibuat otomatis
+                oleh detail.js
+            -->
+
+        </tbody>
+
+    </table>
+
+</div>
+<div class="related-products">
+
+    <div class="section-title">
+
+        <span>
+
+            Produk Lainnya
+
+        </span>
+
+        <h2>
+
+            Anda Mungkin Menyukai
+
+        </h2>
+
+    </div>
+
+    <div
+        class="related-grid"
+        id="relatedProducts">
+
+        <!--
+            Produk sejenis
+            dibuat otomatis
+            oleh detail.js
+        -->
+
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+                FOOTER
+=========================================== -->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-about">
+                <img src="images/footer-logo.png" alt="MJA Berlian">
+                <p>MJA Berlian menghadirkan produk perhiasan, herbal, pertanian, dan peluang usaha dengan layanan yang profesional.</p>
+            </div>
+            <div class="footer-menu">
+                <h3>Menu</h3>
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="index.html#profil">Tentang Kami</a></li>
+                    <li><a href="produk.html">Produk</a></li>
+                    <li><a href="index.html#contact">Kontak</a></li>
+                </ul>
+            </div>
+            <div class="footer-information">
+                <h3>Produk</h3>
+                <ul>
+                    <li><a href="produk.html?kategori=perhiasan">Perhiasan</a></li>
+                    <li><a href="produk.html?kategori=herbal">Herbal</a></li>
+                    <li><a href="produk.html?kategori=pertanian">Pertanian</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Kontak</h3>
+                <p><i class="fa-solid fa-phone"></i> +62 821-7574-171</p>
+                <p><i class="fa-solid fa-envelope"></i> makinjayagung17@gmail.com</p>
+                <p><i class="fa-solid fa-location-dot"></i> Banjarbaru, Kalimantan Selatan</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 All Rights Reserved | <strong>MJA Berlian</strong></p>
+        </div>
+    </div>
+</footer>
+
+<button id="backToTop">
+    <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<script src="js/produk-data.js"></script>
+<script src="js/detail.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
