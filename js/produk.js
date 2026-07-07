@@ -7,15 +7,21 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!productGrid) return;
     const params = new URLSearchParams(window.location.search);
     const kategori = (params.get("kategori") || "").toLowerCase();
+    const sub = (params.get("sub") || "").toLowerCase();
     const productsPerPage = 9;
     let currentPage = 1;
-    let filteredProducts = productList.filter(product => !kategori || product.kategori.toLowerCase() === kategori);
+    let filteredProducts = productList.filter(product => {
+        if (!kategori) return true;
+        if (product.kategori.toLowerCase() !== kategori) return false;
+        if (sub && (product.subkategori || "").toLowerCase() !== sub) return false;
+        return true;
+    });
     const escapeHtml = value => String(value ?? "").replace(/[&<>"]/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[char]));
     const formatKategori = value => value ? value.charAt(0).toUpperCase() + value.slice(1) : "Produk";
     function applySearch() {
         const keyword = (searchInput?.value || "").toLowerCase().trim();
         filteredProducts = productList.filter(product => {
-            const sameCategory = !kategori || product.kategori.toLowerCase() === kategori;
+            const sameCategory = (!kategori || product.kategori.toLowerCase() === kategori) && (!sub || (product.subkategori || "").toLowerCase() === sub);
             const searchable = `${product.nama} ${product.kode} ${product.kategori} ${product.subkategori || ""}`.toLowerCase();
             return sameCategory && searchable.includes(keyword);
         });
@@ -38,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <div class="product-image"><img src="${escapeHtml(product.gambar)}" alt="${escapeHtml(product.nama)}" loading="lazy" onerror="this.src='images/logo.png'"></div>
                 </a>
                 <div class="product-info">
-                    <span class="product-category">${escapeHtml(formatKategori(product.kategori))}</span>
+                    <span class="product-category">${escapeHtml(product.subkategori ? (product.subkategori.charAt(0).toUpperCase()+product.subkategori.slice(1)) : (product.kategori && product.kategori.toLowerCase() === 'perhiasan' ? 'Cincin & Kalung' : formatKategori(product.kategori)))}</span>
                     <h3>${escapeHtml(product.nama)}</h3>
                     <p class="product-price">${escapeHtml(product.harga)}</p>
                     <a href="detail-produk.html?id=${encodeURIComponent(product.id)}" class="detail-btn">Lihat Detail <i class="fa-solid fa-arrow-right"></i></a>
@@ -74,8 +80,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     searchInput?.addEventListener("input", applySearch);
     document.querySelectorAll(".category-link").forEach(link => {
-        const linkKategori = new URL(link.href).searchParams.get("kategori")?.toLowerCase() || "";
-        if ((!kategori && !linkKategori) || kategori === linkKategori) link.classList.add("active");
+        const urlParams = new URL(link.href).searchParams;
+        const linkKategori = urlParams.get("kategori")?.toLowerCase() || "";
+        const linkSub = urlParams.get("sub")?.toLowerCase() || "";
+        if ((!kategori && !linkKategori && !sub && !linkSub) || (kategori === linkKategori && (!sub || sub === linkSub))) link.classList.add("active");
     });
     displayProducts();
     createPagination();
