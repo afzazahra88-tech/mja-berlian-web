@@ -267,7 +267,7 @@ const products = [
         kategori: "perhiasan",
         subkategori: "kalung",
         harga: "Rp 9.800.000",
-        gambar: "images/produk/kalung/high.jpg",
+        gambar: "images/produk/kalung/high01.jpg",
         deskripsi: "Liontin berlian untuk wanita yang indah mempesona, cocok digunakan dalam menghadiri kegiatan penting dan pesta, Liontin ini sangat pas digunakan oleh para wanita karir dan ibu rumah tangga.",
         spesifikasi: {
             JenisBerlian: "Natural Diamond",
