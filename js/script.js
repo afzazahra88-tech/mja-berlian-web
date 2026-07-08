@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     const tabTriggers = document.querySelectorAll(".tab-button, .tab-btn");
     const tabContents = document.querySelectorAll(".tab-content");
-    function activateTab(name){
+    function activateTab(name, shouldScroll = true){
         if(!name) return;
         // deactivate triggers and contents
         document.querySelectorAll('.tab-button, .tab-btn').forEach(t => t.classList.remove('active'));
@@ -93,8 +93,10 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelectorAll('.tab-button, .tab-btn').forEach(t => t.setAttribute('aria-selected', t.classList.contains('active') ? 'true' : 'false'));
         tabContents.forEach(c => c.setAttribute('aria-hidden', c.classList.contains('active') ? 'false' : 'true'));
         // bring about section into view
-        const tentang = document.getElementById('tentang');
-        tentang?.scrollIntoView({behavior:'smooth'});
+        if (shouldScroll) {
+            const tentang = document.getElementById('tentang');
+            tentang?.scrollIntoView({behavior:'smooth'});
+        }
     }
     tabTriggers.forEach(trigger => {
         trigger.addEventListener('click', () => {
@@ -105,8 +107,70 @@ document.addEventListener("DOMContentLoaded", () => {
     // Activate initially visible tab content (if any)
     (function(){
         const initial = document.querySelector('.tab-content.active');
-        if(initial && initial.id) activateTab(initial.id);
+        if(initial && initial.id) activateTab(initial.id, false);
     })();
+
+    const homeProductContainer = document.getElementById("productContainer");
+    if (homeProductContainer && typeof products !== "undefined") {
+        const productFilterButtons = document.querySelectorAll(".product-filter .filter-btn");
+        const escapeProduct = value => String(value ?? "").replace(/[&<>"]/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[char]));
+        const renderHomeProducts = filter => {
+            const visibleProducts = products
+                .filter(product => filter === "all" || product.kategori === filter)
+                .slice(0, 6);
+
+            homeProductContainer.innerHTML = visibleProducts.length
+                ? visibleProducts.map(product => `
+                    <article class="product-card">
+                        <a href="detail-produk.html?id=${encodeURIComponent(product.id)}" aria-label="Lihat detail ${escapeProduct(product.nama)}">
+                            <div class="product-image">
+                                <img src="${escapeProduct(product.gambar)}" alt="${escapeProduct(product.nama)}" loading="lazy" onerror="this.src='images/logo.png'">
+                            </div>
+                        </a>
+                        <div class="product-info">
+                            <span class="product-category">${escapeProduct(product.subkategori || product.kategori)}</span>
+                            <h3>${escapeProduct(product.nama)}</h3>
+                            <p>${escapeProduct(product.deskripsi || "Produk berlian pilihan MJA Berlian.")}</p>
+                            <div class="product-footer">
+                                <span class="product-price">${escapeProduct(product.harga)}</span>
+                                <a href="detail-produk.html?id=${encodeURIComponent(product.id)}" class="detail-btn" aria-label="Lihat detail ${escapeProduct(product.nama)}">
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                `).join("")
+                : `<div class="empty-product"><i class="fa-solid fa-box-open"></i><h3>Produk belum tersedia</h3><p>Silakan cek kembali katalog produk MJA Berlian.</p></div>`;
+        };
+
+        productFilterButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                productFilterButtons.forEach(item => item.classList.remove("active"));
+                button.classList.add("active");
+                renderHomeProducts(button.dataset.filter || "all");
+            });
+        });
+
+        renderHomeProducts("all");
+    }
+
+    const testimonialSlider = document.getElementById("testimonialSlider");
+    if (testimonialSlider) {
+        testimonialSlider.innerHTML = `
+            <article class="testimonial-card">
+                <div class="testimonial-stars" aria-label="Rating 5 dari 5">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <h3>Mitra MJA Berlian</h3>
+                <span>Komunitas Bisnis</span>
+                <p>Produknya mudah dikenalkan, sistemnya jelas, dan pelatihannya membantu kami lebih percaya diri saat menjalankan bisnis.</p>
+            </article>
+        `;
+    }
     const revealElements = document.querySelectorAll(".section-title, .product-card, .join-card, .exclusive-card, .info-card");
     function revealOnScroll() { revealElements.forEach(element => { if (element.getBoundingClientRect().top < window.innerHeight - 100) element.classList.add("fade-up"); }); }
     window.addEventListener("scroll", revealOnScroll); revealOnScroll();

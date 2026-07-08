@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produk | MJA Berlian</title>
-    <meta name="description" content="Katalog produk cincin dan kalung berlian MJA Berlian.">
+    <title>Berita Acara | MJA Berlian</title>
+    <meta name="description" content="Berita, kegiatan, seminar, dan pengumuman resmi MJA Berlian.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="css/produk.css">
 </head>
 <body>
     <header>
@@ -33,14 +32,8 @@
                         </ul>
                     </li>
                     <li><a href="index.html#peluang">Bisnis</a></li>
-                    <li class="dropdown">
-                        <a href="produk.html" class="active">Produk <i class="fa-solid fa-chevron-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="produk.html">Semua Produk</a></li>
-                            <li><a href="produk.html?kategori=perhiasan">Cincin & Kalung</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="berita-acara.html">Berita Acara</a></li>
+                    <li><a href="produk.html">Produk</a></li>
+                    <li><a href="berita-acara.html" class="active">Berita Acara</a></li>
                     <li><a href="index.html#contact">Kontak</a></li>
                     <li><a id="pendaftaran-link" href="https://forms.gle/EcQ9DQEofBSi8EZZ6" target="_blank" rel="noopener">Pendaftaran</a></li>
                 </ul>
@@ -60,61 +53,68 @@
         </nav>
     </header>
 
-    <section class="product-hero">
-        <div class="container">
-            <div class="product-hero-content">
-                <h1>Produk Kami</h1>
-                <p>
-                    <a href="index.html">Beranda</a>
-                    <i class="fa-solid fa-angle-right"></i>
-                    <span>Produk</span>
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section class="product-page">
-        <div class="container">
-            <div class="product-layout">
-                <aside class="product-sidebar">
-                    <h3>Kategori Produk</h3>
-                    <ul class="category-list">
-                        <li><a href="produk.html" class="category-link" data-category="all">Semua Produk</a></li>
-                        <li>
-                            <a href="produk.html?kategori=perhiasan" class="category-link" data-category="perhiasan">Perhiasan</a>
-                            <ul class="subcategory">
-                                <li><a href="produk.html?kategori=perhiasan&sub=cincin">Cincin</a></li>
-                                <li><a href="produk.html?kategori=perhiasan&sub=kalung">Kalung</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </aside>
-
-                <div class="product-content">
-                    <div class="product-toolbar">
-                        <div class="toolbar-left">
-                            <div class="view-mode" aria-label="Mode tampilan">
-                                <button class="view-btn active" aria-label="Tampilan grid"><i class="fa-solid fa-grip"></i></button>
-                                <button class="view-btn" aria-label="Tampilan daftar"><i class="fa-solid fa-list"></i></button>
-                            </div>
-                            <p id="productCount">Menampilkan produk...</p>
-                        </div>
-
-                        <div class="toolbar-right">
-                            <div class="search-box">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                                <input type="text" id="searchProduct" placeholder="Cari produk...">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="product-grid" id="productGrid"></div>
-
-                    <div class="pagination" id="pagination"></div>
+    <main>
+        <section class="news-hero">
+            <div class="container">
+                <div class="news-hero-content">
+                    <span>Berita & Acara</span>
+                    <h1>Kegiatan Terbaru MJA Berlian</h1>
+                    <p>Ikuti informasi seminar, peluncuran koleksi, pelatihan bisnis, dan pengumuman resmi dari MJA Berlian.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <section class="news-section">
+            <div class="container">
+                <div class="section-title">
+                    <span>Agenda</span>
+                    <h2>Berita Acara MJA Berlian</h2>
+                    <p>Halaman ini dapat digunakan untuk menampilkan agenda resmi dan pembaruan kegiatan perusahaan.</p>
+                </div>
+
+                <div class="news-list">
+                    <article class="news-card featured">
+                        <div class="news-date">
+                            <strong>25</strong>
+                            <span>Jul 2026</span>
+                        </div>
+                        <div class="news-content">
+                            <span class="news-tag">Seminar</span>
+                            <h3>Seminar Karir dan Peluang Bisnis</h3>
+                            <p>Acara pengenalan peluang kemitraan MJA Berlian untuk calon mitra yang ingin memahami sistem bisnis, produk, dan dukungan pelatihan.</p>
+                            <a href="https://forms.gle/EcQ9DQEofBSi8EZZ6" target="_blank" rel="noopener" class="primary-btn">Daftar Acara</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="news-date">
+                            <strong>10</strong>
+                            <span>Agu 2026</span>
+                        </div>
+                        <div class="news-content">
+                            <span class="news-tag">Produk</span>
+                            <h3>Peluncuran Koleksi Baru</h3>
+                            <p>Informasi peluncuran koleksi cincin dan kalung berlian terbaru akan diperbarui pada halaman ini.</p>
+                            <a href="produk.html" class="text-link">Lihat Produk <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="news-date">
+                            <strong>18</strong>
+                            <span>Agu 2026</span>
+                        </div>
+                        <div class="news-content">
+                            <span class="news-tag">Pelatihan</span>
+                            <h3>Pelatihan Mitra MJA Berlian</h3>
+                            <p>Sesi penguatan materi produk, pemasaran, dan pengembangan jaringan untuk mitra aktif MJA Berlian.</p>
+                            <a href="index.html#contact" class="text-link">Hubungi Kami <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer>
         <div class="container">
@@ -156,8 +156,6 @@
         <i class="fa-solid fa-arrow-up"></i>
     </button>
 
-    <script src="js/produk-data.js"></script>
-    <script src="js/produk.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
