@@ -9,7 +9,7 @@
                         GOOGLE FONT
 ========================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&display=swap');
 
 
 /* ==========================================================
@@ -103,6 +103,10 @@ textarea{
     --radius:20px;
 
     --transition:.35s ease;
+
+    --dark:#15130f;
+
+    --font-display:'Cormorant Garamond', Georgia, serif;
 
 }
 
@@ -2445,17 +2449,62 @@ a,
 
 /* Final visual polish */
 :root{
-    --primary:#063d70;
-    --primary-dark:#082846;
-    --secondary:#f5b63d;
-    --background:#f6f8fb;
+    --primary:#0b2a45;
+    --primary-dark:#071b2d;
+    --secondary:#c79a4b;
+    --background:#f8f5ee;
     --radius:8px;
-    --shadow:0 14px 34px rgba(8,40,70,.10);
+    --shadow:0 18px 40px rgba(9,25,40,.10);
+    --dark:#15130f;
+    --font-display:'Cormorant Garamond', Georgia, serif;
 }
 
 body{
-    color:#26313f;
+    color:#2a2620;
     background:#fff;
+}
+
+/* Display serif for major headings — pairs with Poppins for body/UI text */
+.hero-content h1,
+.news-hero-content h1,
+.product-hero h1,
+.section-title h2{
+    font-family:var(--font-display);
+    font-weight:600;
+    letter-spacing:.2px;
+}
+
+.section-title span{
+    font-family:var(--font-display);
+    font-style:italic;
+    font-weight:600;
+    font-size:20px;
+    letter-spacing:.3px;
+    text-transform:none;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+}
+
+.section-title span::before{
+    content:"";
+    width:26px;
+    height:1px;
+    background:var(--secondary);
+}
+
+/* Refined button feel: quieter lift, gold-tinted shadow instead of flat black */
+.primary-btn{
+    box-shadow:0 12px 26px rgba(199,154,75,.28);
+}
+
+.primary-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 16px 32px rgba(199,154,75,.36);
+}
+
+.white-btn:hover{
+    box-shadow:0 12px 26px rgba(9,25,40,.14);
 }
 
 section{
