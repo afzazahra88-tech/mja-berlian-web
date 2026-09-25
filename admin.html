@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Panel Input Data | MJA Berlian</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<style>
+:root{--primary:#0b3d2e;--gold:#b8860b;--bg:#f5f3ee;--card:#fff;--border:#e2ddd2;--text:#2b2b2b;--muted:#777;}
+*{box-sizing:border-box;}
+body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);margin:0;padding:0;}
+header.admin-head{background:var(--primary);color:#fff;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+header.admin-head h1{font-size:18px;margin:0;}
+header.admin-head a{color:#fff;opacity:.85;text-decoration:none;font-size:14px;}
+.wrap{max-width:1100px;margin:0 auto;padding:20px;}
+.notice{background:#fff8e6;border:1px solid #f0dca0;color:#6b5300;padding:14px 16px;border-radius:10px;font-size:14px;margin-bottom:20px;line-height:1.6;}
+.notice b{color:#4a3d00;}
+.tabs{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap;}
+.tab-btn{padding:10px 18px;border-radius:30px;border:1px solid var(--border);background:#fff;cursor:pointer;font-weight:600;font-size:14px;color:var(--muted);}
+.tab-btn.active{background:var(--primary);color:#fff;border-color:var(--primary);}
+.panel{display:none;}
+.panel.active{display:block;}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;margin-bottom:20px;}
+.card h2{margin-top:0;font-size:17px;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+@media(max-width:640px){.grid2{grid-template-columns:1fr;}}
+label{display:block;font-size:13px;font-weight:600;margin-bottom:5px;color:#444;}
+input,select,textarea{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-family:inherit;font-size:14px;margin-bottom:14px;background:#fdfdfc;}
+textarea{min-height:80px;resize:vertical;}
+.spec-row{display:grid;grid-template-columns:1fr 1fr auto;gap:8px;align-items:center;}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:8px;border:none;font-weight:600;cursor:pointer;font-size:14px;}
+.btn-primary{background:var(--primary);color:#fff;}
+.btn-gold{background:var(--gold);color:#fff;}
+.btn-light{background:#eee;color:#333;}
+.btn-danger{background:#fdeaea;color:#c0392b;}
+.btn-small{padding:6px 10px;font-size:12px;border-radius:6px;}
+.row-actions{display:flex;gap:16px;flex-wrap:wrap;margin-top:6px;}
+table{width:100%;border-collapse:collapse;font-size:13px;}
+th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--border);vertical-align:top;}
+th{color:var(--muted);font-weight:600;}
+img.thumb{width:42px;height:42px;object-fit:cover;border-radius:6px;background:#eee;}
+.pill{display:inline-block;padding:2px 9px;border-radius:20px;background:#eef4f0;color:var(--primary);font-size:11px;font-weight:600;}
+.helper{font-size:12px;color:var(--muted);margin:-8px 0 14px;}
+#gate{position:fixed;inset:0;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;z-index:99;}
+#gate input{width:220px;text-align:center;font-size:18px;letter-spacing:4px;}
+#gate p{max-width:320px;text-align:center;font-size:13px;opacity:.85;}
+.day-picker{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;}
+.day-picker button{padding:8px 12px;border-radius:8px;border:1px solid var(--border);background:#fff;cursor:pointer;font-size:13px;}
+.day-picker button.active{background:var(--primary);color:#fff;border-color:var(--primary);}
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <h2><i class="fa-solid fa-lock"></i> Panel Input Data MJA Berlian</h2>
+  <input type="password" id="pinInput" placeholder="Masukkan kode akses" maxlength="12">
+  <button class="btn btn-gold" onclick="cekPin()">Masuk</button>
+  <p>Halaman ini bukan bagian dari situs publik, dan tidak ditautkan di menu manapun. Kode akses ini hanya untuk mencegah orang lain yang kebetulan menemukan tautannya iseng membuka &mdash; ini <b>bukan</b> pengaman data sungguhan, jadi jangan bagikan tautan halaman ini ke sembarang orang.</p>
+</div>
+
+<div id="appRoot" style="display:none">
+<header class="admin-head">
+  <h1><i class="fa-solid fa-gem"></i> Panel Input Data &mdash; MJA Berlian</h1>
+  <a href="index.html" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Lihat Situs</a>
+</header>
+
+<div class="wrap">
+
+  <div class="notice" id="mainNotice">
+    <b>Cara pakai singkat (sudah tersambung ke GitHub):</b> isi formulir di bawah &rarr; klik <b>Simpan</b> &rarr; ulangi untuk
+    setiap produk/agenda &rarr; setelah semua selesai, klik tombol hijau <b>🚀 Terbitkan ke Website</b> di bagian bawah daftar.
+    Perubahan langsung tampil di situs dalam waktu singkat, <b>tanpa perlu membuka GitHub sama sekali</b>.
+    Belum tersambung? Buka tab <b>⚙️ Pengaturan</b> dulu (cukup sekali saja).
+  </div>
+
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="produk">📦 Produk / Katalog</button>
+    <button class="tab-btn" data-tab="agenda">📅 Agenda Mingguan</button>
+    <button class="tab-btn" data-tab="pengaturan">⚙️ Pengaturan</button>
+    <button class="tab-btn" data-tab="bantuan">❓ Cara Manual (cadangan)</button>
+  </div>
+
+  <!-- ================= TAB PRODUK ================= -->
+  <div class="panel active" id="tab-produk">
+    <div class="card">
+      <h2 id="produkFormTitle">Tambah Produk Baru</h2>
+      <input type="hidden" id="p_editIndex" value="-1">
+      <div class="grid2">
+        <div>
+          <label>Kode Produk</label>
+          <input id="p_kode" placeholder="Contoh: PD0062">
+        </div>
+        <div>
+          <label>Nama Produk</label>
+          <input id="p_nama" placeholder="Contoh: PREMIUM LADY 08">
+        </div>
+        <div>
+          <label>Kategori</label>
+          <select id="p_kategori"><option value="perhiasan">Perhiasan</option></select>
+        </div>
+        <div>
+          <label>Sub Kategori</label>
+          <select id="p_sub">
+            <option value="cincin">Cincin</option>
+            <option value="kalung">Kalung</option>
+            <option value="lainnya">Lainnya (ketik manual)</option>
+          </select>
+          <input id="p_subManual" placeholder="Nama sub kategori" style="display:none">
+        </div>
+        <div>
+          <label>Harga (angka saja, contoh 7800000)</label>
+          <input id="p_harga" placeholder="7800000" inputmode="numeric">
+        </div>
+        <div>
+          <label>Nama File Gambar</label>
+          <input id="p_gambar" placeholder="Contoh: lady08.jpg">
+        </div>
+      </div>
+
+      <label>Foto Produk &mdash; pilih langsung dari HP/komputer (tidak perlu buka GitHub)</label>
+      <input type="file" id="p_gambarFile" accept="image/*" onchange="pilihFotoProduk(this)">
+      <img id="p_gambarPreview" style="display:none;max-width:130px;border-radius:10px;margin:-6px 0 14px;border:1px solid var(--border)">
+      <p class="helper" id="p_gambarPath">File gambar di atas nanti disimpan ke folder: images/produk/cincin/lady08.jpg &mdash;
+        pilih foto di atas dan foto akan ikut diterbitkan otomatis saat klik "🚀 Terbitkan ke Website".</p>
+
+      <label>Deskripsi</label>
+      <textarea id="p_deskripsi" placeholder="Tulis deskripsi produk di sini..."></textarea>
+
+      <label>Spesifikasi</label>
+      <div id="p_specRows"></div>
+      <button class="btn btn-light btn-small" onclick="tambahBarisSpek()"><i class="fa-solid fa-plus"></i> Tambah baris spesifikasi</button>
+
+      <div class="row-actions" style="margin-top:18px">
+        <button class="btn btn-primary" onclick="simpanProduk()"><i class="fa-solid fa-floppy-disk"></i> Simpan Produk</button>
+        <button class="btn btn-light" onclick="resetFormProduk()">Batal / Formulir Baru</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Daftar Produk Saat Ini (<span id="p_count">0</span>)</h2>
+      <div style="overflow-x:auto">
+      <table>
+        <thead><tr><th></th><th>Kode</th><th>Nama</th><th>Sub</th><th>Harga</th><th>Aksi</th></tr></thead>
+        <tbody id="p_tableBody"></tbody>
+      </table>
+      </div>
+      <div class="row-actions" style="margin-top:16px">
+        <button class="btn btn-primary" onclick="terbitkanProduk()"><i class="fa-solid fa-rocket"></i> 🚀 Terbitkan ke Website</button>
+        <button class="btn btn-gold" onclick="unduhProduk()"><i class="fa-solid fa-download"></i> Unduh produk-data.js (cara manual)</button>
+        <button class="btn btn-danger" onclick="resetDataProduk()">Kembalikan ke Data Situs Semula</button>
+      </div>
+      <p class="helper" id="p_statusTerbit" style="margin-top:10px"></p>
+    </div>
+  </div>
+
+  <!-- ================= TAB AGENDA ================= -->
+  <div class="panel" id="tab-agenda">
+    <div class="card">
+      <h2 id="agendaFormTitle">Tambah Agenda Baru</h2>
+      <input type="hidden" id="a_editIndex" value="-1">
+
+      <label>Jenis Agenda</label>
+      <div class="row-actions" style="margin:0 0 14px">
+        <label style="display:flex;align-items:center;gap:6px;font-weight:400;margin:0"><input type="radio" name="a_tipe" value="mingguan" checked onchange="ubahTipeAgenda()" style="width:auto;margin:0"> Rutin setiap minggu (selalu tampil)</label>
+        <label style="display:flex;align-items:center;gap:6px;font-weight:400;margin:0"><input type="radio" name="a_tipe" value="sekali" onchange="ubahTipeAgenda()" style="width:auto;margin:0"> Sekali pada tanggal tertentu</label>
+      </div>
+
+      <div id="a_mingguanBox">
+        <label>Pilih Hari</label>
+        <div class="day-picker" id="a_dayPicker"></div>
+      </div>
+      <div id="a_sekaliBox" style="display:none">
+        <label>Tanggal</label>
+        <input type="date" id="a_tanggal">
+      </div>
+
+      <div class="grid2">
+        <div>
+          <label>Kategori/Tag</label>
+          <select id="a_tag">
+            <option>Pelatihan</option>
+            <option>Seminar</option>
+            <option>Produk</option>
+            <option>Pengumuman</option>
+            <option value="lainnya">Lainnya (ketik manual)</option>
+          </select>
+          <input id="a_tagManual" placeholder="Nama tag" style="display:none">
+        </div>
+        <div>
+          <label>Judul Agenda</label>
+          <input id="a_judul" placeholder="Contoh: Pelatihan Mitra Mingguan">
+        </div>
+      </div>
+
+      <label>Deskripsi</label>
+      <textarea id="a_deskripsi" placeholder="Ceritakan agenda ini secara singkat..."></textarea>
+
+      <div class="grid2">
+        <div>
+          <label>Teks Tombol</label>
+          <input id="a_tombolTeks" placeholder="Contoh: Hubungi Kami">
+        </div>
+        <div>
+          <label>Tautan Tombol (opsional)</label>
+          <input id="a_tombolLink" placeholder="Contoh: index.html#contact">
+        </div>
+      </div>
+
+      <div class="row-actions">
+        <button class="btn btn-primary" onclick="simpanAgenda()"><i class="fa-solid fa-floppy-disk"></i> Simpan Agenda</button>
+        <button class="btn btn-light" onclick="resetFormAgenda()">Batal / Formulir Baru</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Daftar Agenda Saat Ini (<span id="a_count">0</span>)</h2>
+      <div style="overflow-x:auto">
+      <table>
+        <thead><tr><th>Jenis</th><th>Judul</th><th>Tag</th><th>Aksi</th></tr></thead>
+        <tbody id="a_tableBody"></tbody>
+      </table>
+      </div>
+      <div class="row-actions" style="margin-top:16px">
+        <button class="btn btn-primary" onclick="terbitkanAgenda()"><i class="fa-solid fa-rocket"></i> 🚀 Terbitkan ke Website</button>
+        <button class="btn btn-gold" onclick="unduhAgenda()"><i class="fa-solid fa-download"></i> Unduh agenda-data.js (cara manual)</button>
+        <button class="btn btn-danger" onclick="resetDataAgenda()">Kembalikan ke Data Situs Semula</button>
+      </div>
+      <p class="helper" id="a_statusTerbit" style="margin-top:10px"></p>
+    </div>
+  </div>
+
+  <!-- ================= TAB PENGATURAN ================= -->
+  <div class="panel" id="tab-pengaturan">
+    <div class="card">
+      <h2>⚙️ Hubungkan Panel ke GitHub (cukup sekali)</h2>
+      <p class="helper" style="margin-top:-2px">
+        Setelah langkah ini selesai satu kali, tombol <b>"🚀 Terbitkan ke Website"</b> di tab Produk dan Agenda akan
+        langsung menyimpan perubahan ke situs &mdash; siapa pun yang input data (termasuk orang awam) tidak perlu lagi
+        membuka GitHub, mengunduh file, atau mengunggah manual.
+      </p>
+      <ol style="line-height:2">
+        <li>Buka <a href="https://github.com/settings/personal-access-tokens/new" target="_blank">github.com/settings/personal-access-tokens/new</a> (perlu login akun GitHub pemilik repo <b>afzazahra88-tech</b>).</li>
+        <li>Isi nama bebas, misal <b>"Panel Admin MJA Berlian"</b>.</li>
+        <li>Pada <b>Repository access</b>, pilih <b>Only select repositories</b> &rarr; pilih repo <b>mja-berlian-web</b> saja (jangan pilih semua repo).</li>
+        <li>Pada <b>Permissions &rarr; Repository permissions</b>, cari <b>Contents</b> &rarr; ubah ke <b>Read and write</b>. Permission lain biarkan default (No access).</li>
+        <li>Klik <b>Generate token</b> di bagian bawah, lalu <b>salin</b> kode token yang muncul (kode ini hanya tampil sekali).</li>
+        <li>Tempelkan token tersebut ke kolom di bawah ini, lalu klik <b>Simpan Pengaturan</b>.</li>
+      </ol>
+      <div class="notice" style="margin-bottom:18px">
+        <b>Penting soal keamanan:</b> token ini hanya tersimpan di browser perangkat ini (tidak dikirim ke siapa pun selain
+        GitHub). Jangan bagikan token atau tautan halaman admin ini ke sembarang orang, dan jangan pernah pilih "All repositories"
+        saat membuat token &mdash; cukup pilih repo <b>mja-berlian-web</b> saja supaya kalaupun bocor, dampaknya terbatas.
+      </div>
+      <label>Token GitHub (fine-grained, diawali <code>github_pat_</code>)</label>
+      <input type="password" id="gh_token" placeholder="github_pat_xxxxxxxxxxxxxxxxxxxx">
+      <div class="grid2">
+        <div>
+          <label>Pemilik Repo (owner)</label>
+          <input id="gh_owner" value="afzazahra88-tech">
+        </div>
+        <div>
+          <label>Nama Repo</label>
+          <input id="gh_repo" value="mja-berlian-web">
+        </div>
+      </div>
+      <label>Branch</label>
+      <input id="gh_branch" value="main">
+      <div class="row-actions">
+        <button class="btn btn-primary" onclick="simpanPengaturanGithub()"><i class="fa-solid fa-floppy-disk"></i> Simpan Pengaturan</button>
+        <button class="btn btn-light" onclick="ujiKoneksiGithub()"><i class="fa-solid fa-plug"></i> Uji Koneksi</button>
+        <button class="btn btn-danger" onclick="lupakanTokenGithub()">Lupakan Token dari Perangkat Ini</button>
+      </div>
+      <p class="helper" id="gh_status" style="margin-top:10px"></p>
+    </div>
+  </div>
+
+  <!-- ================= TAB BANTUAN ================= -->
+  <div class="panel" id="tab-bantuan">
+    <div class="card">
+      <h2>Cara manual (dipakai hanya kalau tombol "🚀 Terbitkan ke Website" tidak bisa dipakai)</h2>
+      <p class="helper" style="margin-top:-2px">Kalau panel sudah tersambung lewat tab ⚙️ Pengaturan, langkah-langkah di bawah ini <b>tidak perlu dilakukan lagi</b>.</p>
+      <ol style="line-height:2">
+        <li>Buka repository GitHub situs ini di <a href="https://github.com/afzazahra88-tech/mja-berlian-web" target="_blank">github.com/afzazahra88-tech/mja-berlian-web</a>.</li>
+        <li>Masuk ke folder <b>js</b>.</li>
+        <li>Klik file <b>produk-data.js</b> (atau <b>agenda-data.js</b>) yang lama, lalu klik ikon pensil (Edit) di kanan atas, <b>atau</b> hapus dulu lalu gunakan tombol <b>Add file &rarr; Upload files</b> di halaman folder <b>js</b> dan seret file baru hasil unduhan ke sana &mdash; GitHub otomatis menawarkan untuk menimpa file lama karena namanya sama.</li>
+        <li>Setelah file terunggah, klik tombol hijau <b>Commit changes</b> di bagian bawah halaman.</li>
+        <li>Untuk produk baru, jangan lupa juga unggah <b>file foto</b>-nya ke folder <b>images/produk/&lt;sub kategori&gt;/</b> (misalnya <b>images/produk/cincin/</b>) dengan nama file yang sama persis dengan yang ditulis di formulir.</li>
+        <li>Tunggu 1&ndash;2 menit, lalu refresh halaman <b>produk.html</b> atau <b>berita-acara.html</b> di situs &mdash; data baru akan langsung muncul.</li>
+      </ol>
+      <p class="helper">Tidak perlu menulis kode apapun secara manual &mdash; file yang diunduh dari panel ini sudah dalam format yang tepat dan siap pakai.</p>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<script>
+const DEFAULT_PRODUCTS = [
+  {
+    "id": "PD0027",
+    "kode": "PD0027",
+    "nama": "PREMIUM MAN 01",
+    "kategori": "perhiasan",
+    "subkategori": "cincin",
+    "harga": "Rp 7.800.000",
+    "gambar": "images/produk/cincin/man01.jpg",
+    "deskripsi": "Cincin pria dengan tampilan elegan, rapi, dan berkarisma. Rangkaian berlian tersusun solid dengan satu berlian utama di bagian tengah, cocok untuk eksekutif muda dan pebisnis.",
+    "spesifikasi": {
+      "JenisBerlian": "Natural Diamond",
+      "JumlahBerlian": "+/- 65 pcs",
+      "BeratBerlian": "+/- 0.60 karat",
+      "BahanRing": "Palladium Silver",
+      "BeratTotal": "+/- 6.51 gram"
+    }
+  },
+  {
+    "id": "PD0028",
+    "kode": "PD0028",
+    "nama": "PREMIUM MAN 02",
+    "kategori": "perhiasan",
+    "subkategori": "cincin",
+    "harga": "Rp 7.800.000",
+    "gambar": "images/produk/cincin/man02.jpg",
+    "deskripsi": "Cincin pria berdesain tegas dan eksklusif dengan detail berlian natural yang memperkuat kesan profesional dan percaya diri.",
+    "spesifikasi": {
+      "JenisBerlian": "Natural Diamond",
+      "JumlahBerlian": "+/- 13 pcs",
+      "BeratBerlian": "+/- 0.40 karat",
+      "BahanRing": "Palladium Silver",
+      "BeratTotal": "+/- 10.00 gram"
+    }
+  },
+  {
+    "id": "PD0029",
+    "kode": "PD0029",
+    "nama": "PREMIUM MAN 03",
+    "kategori": "perhiasan",
+    "subkategori": "cincin",
+    "harga": "Rp 7.800.000",
+    "gambar": "images/produk/cincin/man03.jpg",
+    "deskripsi": "Cincin untuk kaum pria yang indah, simpel, nampak rapi dan berkarisma, yang tersusun oleh rangkaian berlian solid dan rapat. Cocok digunakan oleh para eksekutif muda dan pebisnis, dari semua level umur.",
+    "spesifikasi": {
+      "JenisBerlian": "Natural Diamond",
+      "JumlahBerlian": "+/- 28 pcs",
+      "BeratBerlian": "+/- 0.60 karat",
+      "BahanRing": "Palladium Silver",
+      "BeratTotal": "+/- 11.00 gram"
+    }
+  },
+  {
+    "id": "PD0030",
+    "kode": "PD0030",
+    "nama": "PREMIUM MAN 04",
+    "kategori": "perhiasan",
+    "subkategori": "cincin",
+    "harga": "Rp 7.800.000",
+    "gambar": "images/produk/cincin/man04.jpg",
+    "deskripsi": "Cincin untuk kaum pria yang indah, simpel, nampak rapi dan berkarisma, yang tersusun oleh rangkaian berlian solid dan rapat. Cocok digunakan oleh para eksekutif muda dan pebisnis, dari semua level umur.",
+    "spesifikasi": {
+      "JenisBerlian": "Natural Diamond",
+      "JumlahBerlian": "+/- 9 pcs",
+      "BeratBerlian": "+/- 0.50 karat",
+      "BahanRing": "Palladium Silver",
+      "BeratTotal": "+/- 8.00 gram"
+    }
+  },
+  {
+    "id": "PD0031",
+    "kode": "PD0031",
+    "nama": "PREMIUM LADY 01",
+    "kategori": "perhiasan",
+    "subkategori": "cincin",
+    "harga": "Rp 7.800.000",
+    "gambar": "images/produk/cincin/lady01.jpg",
+    "deskripsi": "Cincin berlian untuk wanita yang simpel dan nampak indah, cocok digunakan disetiap waktu dan tempat, cincin ini sangat pas digunakan oleh para wanita karir, pebisnis, ataupun eksekutif senior.",
+    "spesifikasi": {
+      "JenisBerlian": "Natural Diamond",
+      "JumlahBerlian": "+/- 6 pcs",
+      "BeratBerlian": "+/- 0.60 karat",
+      "BahanRing": "Palladium Silver",
+      "BeratTotal": "+/- 4.50 gram"
+    }
+  },
+  {
+    "id": "PD0032",
+    "kode": "PD0032",
+    "nama": "PREMIUM LADY 02",
+    "kategori": "perhiasan",
+    "subkategori": "cincin",
+    "harga": "Rp 7.800.000",
+    "gambar": "images/produk/cincin/lady02.jpg",
+    "deskripsi": "Cincin berlian untuk wanita yang indah, elegan dan tidak kaku dengan motif kelopak bunga ditengah, cocok digunakan disetiap waktu dan tempat, cincin ini sangat pas digunakan oleh para wanita karir dan ibu muda ataupun gadis belia.",
+    "spesifikasi": {
+      "JenisBerlian": "Natural Diamond",
+      "JumlahBerlian": "+/- 9 pcs",
+      "BeratBerlian": "+/- 0.90 karat",
+      "BahanRing": "Palladium Silver",
+      "BeratTotal": "+/- 4.41 gram"
+    }
+  },
+  {
+    "id": "PD0033",
+    "kode": "PD0033",
+    "nama": "PREMIUM LADY 03",
+    "kategori": "perhiasan",
+    "subkategori": "cincin",
+    "harga": "Rp 7.800.000",
+    "gambar": "images/produk/cincin/lady03.jpg",
+    "deskripsi": "Cincin berlian untuk wanita yang simpel dan nampak indah, cocok digunakan disetiap waktu dan tempat, cincin ini sangat pas digunakan oleh para wanita karir, pebisnis, ataupun eksekutif senior.",
+    "spesifikasi": {
+      "JenisBerlian": "Natural Diamond",
+      "JumlahBerlian": "+/- 37 pcs",
+      "BeratBerlian": "+/- 0.80 karat",
+      "BahanRing": "Palladium Silver",
+      "BeratTotal": "+/- 4.00 gram"
+    }
+  },
+  {
+    "id": "PD0034",
+    "kode": "PD0034",
+    "nama": "PREMIUM LADY 04",
+    "kategori": "perhiasan",
+    "subkategori": "cincin",
+    "harga": "Rp 7.800.000",
+    "gambar": "images/produk/cincin/lady04.jpg",
+    "deskripsi": "Cincin berlian untuk wanita yang indah, elegan dan tidak kaku dengan motif kelopak bunga ditengah, cocok digunakan disetiap waktu dan tempat, cincin ini sangat pas digunakan oleh para wanita karir dan ibu muda ataupun gadis belia.",
+    "spesifikasi": {
+      "JenisBerlian": "Natural Diamond",
+      "JumlahBerlian": "+/- 6 pcs",
+      "BeratBerlian": "+/- 0.40 karat",
+      "BahanRing": "Palladium Silver",
+      "BeratTotal": "+/- 4.00 gram"
+    }
+  },
+  {
+    "id": "PD0035",
+    "kode": "PD0035",
+    "nama": "PREMIUM LADY 05",
+    "kategori": "perhiasan",
+    "subkategori": "cincin",
+    "harga": "Rp 7.800.000",
+    "gambar": "images/produk/cincin/lady05.jpg",
+    "deskripsi": "Cincin berlian untuk wanita yang indah, elegan dan tidak kaku dengan motif kelopak bunga ditengah, cocok digunakan disetiap waktu dan tempat, cincin ini sangat pas digunakan oleh para wanita karir dan ibu muda ataupun gadis belia.",
+    "spesifikasi": {
+      "JenisBerlian": "Natural Diamond",
+      "JumlahBerlian": "+/- 9 pcs",
+      "BeratBerlian": "+/- 0.70 karat",
+      "BahanRing": "Palladium Silver",
+      "BeratTotal": "+/- 4.00 gram"
+    }
+  },
+  {
+    "id": "PD0037",
+    "kode": "PD0037",
+    "nama": "PREMIUM LADY 06",
+    "kategori": "perhiasan",
+    "subkategori": "cincin",
+    "harga": "Rp 7.800.000",
+    "gambar": "images/produk/cincin/lady06.jpg",
+    "deskripsi": "Cincin berlian untuk wanita yang indah, elegan dan tidak kaku dengan motif kelopak bunga ditengah, cocok digunakan disetiap waktu dan tempat, cincin ini sangat pas digunakan oleh para wanita karir dan ibu muda ataupun gadis belia.",
+    "spesifikasi": {
+      "JenisBerlian": "Natural Diamond",
+      "JumlahBerlian": "+/- 2 pcs",
+      "BeratBerlian": "+/- 0.60 karat",
+      "BahanRing": "Palladium Silver",
+      "BeratTotal": "+/- 5.00 gram"
+    }
+  },
+  {
+    "id": "PD0044",
+    "kode": "PD0044",
+    "nama": "HIGH MAN 01",
+    "kategori": "perhiasan",
+    "subkategori": "cincin",
+    "harga": "Rp 9.800.000",
+    "gambar": "images/produk/cincin/highman01.jpg",
+    "deskripsi": "Cincin untuk kaum pria yang indah, simpel, nampak tegas dan kokoh, cincin ini pantas untuk para pebisnis dan eksekutif, karena kesederhananya cincin ini akan pas jika digunakan dalam semua waktu dan event.",
+    "spesifikasi": {
+      "JenisBerlian": "Natural Diamond",
+      "JumlahBerlian": "+/- 24 pcs",
+      "BeratBerlian": "+/- 1.00 karat",
+      "BahanRing": "Palladium Silver",
+      "BeratTotal": "+/- 10.00 gram"
+    }
+  },
+  {
+    "id": "PD0038",
+    "kode": "PD0038",
+    "nama": "PREMIUM LADY 07",
+    "kategori": "perhiasan",
+    "subkategori": "cincin",
+    "harga": "Rp 7.800.000",
+    "gambar": "images/produk/cincin/lady07.jpg",
+    "deskripsi": "Cincin berlian untuk wanita yang indah, elegan dan tidak kaku dengan motif kelopak bunga ditengah, cocok digunakan disetiap waktu dan tempat, cincin ini sangat pas digunakan oleh para wanita karir dan ibu muda ataupun gadis belia.",
+    "spesifikasi": {
+      "JenisBerlian": "Natural Diamond",
+      "JumlahBerlian": "+/- 2 pcs",
+      "BeratBerlian": "+/- 0.60 karat",
+      "BahanRing": "Palladium Silver",
+      "BeratTotal": "+/- 5.00 gram"
+    }
+  },
+  {
+    "id": "PD0039",
+    "kode": "PD0039",
+    "nama": "LIOTIN PREMIUM 01",
+    "kategori": "perhiasan",
+    "subkategori": "kalung",
+    "harga": "Rp 7.800.000",
+    "gambar": "images/produk/kalung/prem01.jpg",
+    "deskripsi": "Liontin berlian untuk wanita yang simpel dan nampak indah, dengan taburan berlian diseluruh permukaannya cocok digunakan digunakan disetiap waktu dan tempat, liontin ini sangat pas digunakan oleh para wanita karir, pebisnis, ataupun eksekutif senior.",
+    "spesifikasi": {
+      "JenisBerlian": "Natural Diamond",
+      "JumlahBerlian": "+/- 86 pcs",
+      "BeratBerlian": "+/- 0.60 karat",
+      "BahanRing": "Palladium Silver",
+      "BeratTotal": "+/- 5.00 gram"
+    }
+  },
+  {
+    "id": "PD0040",
+    "kode": "PD0040",
+    "nama": "LIOTIN PREMIUM 02",
+    "kategori": "perhiasan",
+    "subkategori": "kalung",
+    "harga": "Rp 7.800.000",
+    "gambar": "images/produk/kalung/prem02.jpg",
+    "deskripsi": "Liontin berlian untuk wanita yang simpel dan nampak indah, dengan taburan berlian diseluruh permukaannya cocok digunakan digunakan disetiap waktu dan tempat, liontin ini sangat pas digunakan oleh para wanita karir, pebisnis, ataupun eksekutif senior.",
+    "spesifikasi": {
+      "JenisBerlian": "Natural Diamond",
+      "JumlahBerlian": "+/- 78 pcs",
+      "BeratBerlian": "+/- 0.50 karat",
+      "BahanRing": "Palladium Silver",
+      "BeratTotal": "+/- 5.00 gram"
+    }
+  },
+  {
+    "id": "PD0042",
+    "kode": "PD0042",
+    "nama": "LIOTIN PREMIUM 03",
+    "kategori": "perhiasan",
+    "subkategori": "kalung",
+    "harga": "Rp 7.800.000",
+    "gambar": "images/produk/kalung/prem03.jpg",
+    "deskripsi": "Liontin berlian untuk wanita yang simpel dan nampak indah, dengan taburan berlian diseluruh permukaannya cocok digunakan digunakan disetiap waktu dan tempat, liontin ini sangat pas digunakan oleh para wanita karir, pebisnis, ataupun eksekutif senior.",
+    "spesifikasi": {
+      "JenisBerlian": "Natural Diamond",
+      "JumlahBerlian": "+/- 11 pcs",
+      "BeratBerlian": "+/- 0.30 karat",
+      "BahanRing": "Palladium Silver",
+      "BeratTotal": "+/- 3.00 gram"
+    }
+  },
+  {
+    "id": "PD0057",
+    "kode": "PD0057",
+    "nama": "LIOTIN HIGH 01",
+    "kategori": "perhiasan",
+    "subkategori": "kalung",
+    "harga": "Rp 9.800.000",
+    "gambar": "images/produk/kalung/high01.jpg",
+    "deskripsi": "Liontin berlian untuk wanita yang indah mempesona, cocok digunakan dalam menghadiri kegiatan penting dan pesta, Liontin ini sangat pas digunakan oleh para wanita karir dan ibu rumah tangga.",
+    "spesifikasi": {
+      "JenisBerlian": "Natural Diamond",
+      "JumlahBerlian": "+/- 7 pcs",
+      "BeratBerlian": "+/- 0.25 karat",
+      "BahanRing": "Palladium Silver",
+      "BeratTotal": "+/- 5.00 gram"
+    }
+  },
+  {
+    "id": "PD0058",
+    "kode": "PD0058",
+    "nama": "LIOTIN HIGH 02",
+    "kategori": "perhiasan",
+    "subkategori": "kalung",
+    "harga": "Rp 9.800.000",
+    "gambar": "images/produk/kalung/high02.jpg",
+    "deskripsi": "Liontin berlian untuk wanita yang indah mempesona, cocok digunakan dalam menghadiri kegiatan penting dan pesta, Liontin ini sangat pas digunakan oleh para wanita karir dan ibu rumah tangga.",
+    "spesifikasi": {
+      "JenisBerlian": "Natural Diamond",
+      "JumlahBerlian": "+/- 16 pcs",
+      "BeratBerlian": "+/- 0.50 karat",
+      "BahanRing": "Palladium Silver",
+      "BeratTotal": "+/- 5.00 gram"
+    }
+  },
+  {
+    "id": "PD0061",
+    "kode": "PD0061",
+    "nama": "LIOTIN HIGH 03",
+    "kategori": "perhiasan",
+    "subkategori": "kalung",
+    "harga": "Rp 9.800.000",
+    "gambar": "images/produk/kalung/high03.jpg",
+    "deskripsi": "Liontin berlian untuk wanita yang indah mempesona, cocok digunakan dalam menghadiri kegiatan penting dan pesta, Liontin ini sangat pas digunakan oleh para wanita karir dan ibu rumah tangga.",
+    "spesifikasi": {
+      "JenisBerlian": "Natural Diamond",
+      "JumlahBerlian": "+/- 23 pcs",
+      "BeratBerlian": "+/- 0.50 karat",
+      "BahanRing": "Palladium Silver",
+      "BeratTotal": "+/- 5.00 gram"
+    }
+  }
+];
+const DEFAULT_AGENDA = [
+  {
+    "id": "AG001",
+    "tipe": "mingguan",
+    "hari": "senin",
+    "tag": "Pelatihan",
+    "judul": "Pelatihan Mitra MJA Berlian",
+    "deskripsi": "Sesi rutin penguatan materi produk, pemasaran, dan pengembangan jaringan untuk mitra aktif MJA Berlian. Diselenggarakan setiap minggu.",
+    "tombolTeks": "Hubungi Kami",
+    "tombolLink": "index.html#contact"
+  },
+  {
+    "id": "AG002",
+    "tipe": "sekali",
+    "tanggal": "2026-07-25",
+    "tag": "Seminar",
+    "judul": "Seminar Karir dan Peluang Bisnis",
+    "deskripsi": "Acara pengenalan peluang kemitraan MJA Berlian untuk calon mitra yang ingin memahami sistem bisnis, produk, dan dukungan pelatihan.",
+    "tombolTeks": "Daftar Acara",
+    "tombolLink": "https://forms.gle/EcQ9DQEofBSi8EZZ6"
+  },
+  {
+    "id": "AG003",
+    "tipe": "sekali",
+    "tanggal": "2026-08-10",
+    "tag": "Produk",
+    "judul": "Peluncuran Koleksi Baru",
+    "deskripsi": "Informasi peluncuran koleksi cincin dan kalung berlian terbaru akan diperbarui pada halaman ini.",
+    "tombolTeks": "Lihat Produk",
+    "tombolLink": "produk.html"
+  }
+];
+
+/* ---------- GERBANG PIN (hanya penghalang ringan, bukan keamanan sungguhan) ---------- */
+function cekPin(){
+  const val = document.getElementById('pinInput').value;
+  if(val === 'mja2026'){
+    document.getElementById('gate').style.display='none';
+    document.getElementById('appRoot').style.display='block';
+    sessionStorage.setItem('mja_admin_ok','1');
+  } else {
+    alert('Kode salah. Hubungi pengelola situs untuk kode akses.');
+  }
+}
+if(sessionStorage.getItem('mja_admin_ok')==='1'){
+  document.getElementById('gate').style.display='none';
+  document.getElementById('appRoot').style.display='block';
+}
+document.getElementById('pinInput').addEventListener('keydown', e=>{ if(e.key==='Enter') cekPin(); });
+
+/* ---------- TAB SWITCH ---------- */
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-'+btn.dataset.tab).classList.add('active');
+  });
+});
+
+/* ---------- STORAGE ---------- */
+function muatProduk(){
+  const raw = localStorage.getItem('mja_produk_data');
+  return raw ? JSON.parse(raw) : JSON.parse(JSON.stringify(DEFAULT_PRODUCTS));
+}
+function simpanKeStorageProduk(data){ localStorage.setItem('mja_produk_data', JSON.stringify(data)); }
+function muatAgenda(){
+  const raw = localStorage.getItem('mja_agenda_data');
+  return raw ? JSON.parse(raw) : JSON.parse(JSON.stringify(DEFAULT_AGENDA));
+}
+function simpanKeStorageAgenda(data){ localStorage.setItem('mja_agenda_data', JSON.stringify(data)); }
+
+/* ---------- HELPER ---------- */
+const escapeHtml = v => String(v??'').replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function formatRupiah(angka){
+  const n = String(angka).replace(/[^0-9]/g,'');
+  if(!n) return '';
+  return 'Rp ' + Number(n).toLocaleString('id-ID');
+}
+function nextKodeProduk(list){
+  let max = 0;
+  list.forEach(p=>{ const n = parseInt(String(p.kode||'').replace(/\D/g,''),10); if(!isNaN(n) && n>max) max=n; });
+  return 'PD' + String(max+1).padStart(4,'0');
+}
+
+/* ================= SAMBUNGAN GITHUB (Terbitkan Otomatis) ================= */
+const GH_KEYS = { owner:'mja_gh_owner', repo:'mja_gh_repo', branch:'mja_gh_branch', token:'mja_gh_token' };
+function ghConfig(){
+  return {
+    owner: localStorage.getItem(GH_KEYS.owner) || 'afzazahra88-tech',
+    repo: localStorage.getItem(GH_KEYS.repo) || 'mja-berlian-web',
+    branch: localStorage.getItem(GH_KEYS.branch) || 'main',
+    token: localStorage.getItem(GH_KEYS.token) || ''
+  };
+}
+function muatPengaturanGithub(){
+  const cfg = ghConfig();
+  document.getElementById('gh_owner').value = cfg.owner;
+  document.getElementById('gh_repo').value = cfg.repo;
+  document.getElementById('gh_branch').value = cfg.branch;
+  document.getElementById('gh_token').value = cfg.token;
+}
+function simpanPengaturanGithub(){
+  localStorage.setItem(GH_KEYS.owner, document.getElementById('gh_owner').value.trim());
+  localStorage.setItem(GH_KEYS.repo, document.getElementById('gh_repo').value.trim());
+  localStorage.setItem(GH_KEYS.branch, document.getElementById('gh_branch').value.trim());
+  localStorage.setItem(GH_KEYS.token, document.getElementById('gh_token').value.trim());
+  document.getElementById('gh_status').textContent = 'Pengaturan tersimpan di perangkat ini. Coba klik "Uji Koneksi" untuk memastikan berhasil.';
+}
+function lupakanTokenGithub(){
+  if(!confirm('Hapus token GitHub dari perangkat ini? Tombol "Terbitkan ke Website" tidak akan berfungsi sampai token diisi ulang.')) return;
+  Object.values(GH_KEYS).forEach(k=>localStorage.removeItem(k));
+  muatPengaturanGithub();
+  document.getElementById('gh_status').textContent = 'Token sudah dihapus dari perangkat ini.';
+}
+async function ujiKoneksiGithub(){
+  const el = document.getElementById('gh_status');
+  el.textContent = 'Menguji koneksi...';
+  try{
+    await ghGetSha('js/produk-data.js');
+    el.textContent = '✅ Berhasil tersambung ke repo GitHub. Tombol "Terbitkan ke Website" siap dipakai.';
+  }catch(err){
+    el.textContent = '❌ Gagal tersambung: ' + err.message;
+  }
+}
+function b64EncodeUnicode(str){
+  return btoa(unescape(encodeURIComponent(str)));
+}
+async function ghGetSha(path){
+  const cfg = ghConfig();
+  if(!cfg.token) throw new Error('Token GitHub belum diisi. Buka tab ⚙️ Pengaturan dahulu.');
+  const res = await fetch(`https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/${path}?ref=${encodeURIComponent(cfg.branch)}`, {
+    headers: { 'Authorization': `Bearer ${cfg.token}`, 'Accept': 'application/vnd.github+json' }
+  });
+  if(res.status===404) return null;
+  if(!res.ok){
+    const j = await res.json().catch(()=>({}));
+    throw new Error(j.message || ('status '+res.status+' saat memeriksa '+path));
+  }
+  const j = await res.json();
+  return j.sha;
+}
+async function ghPutFile(path, contentBase64, message){
+  const cfg = ghConfig();
+  if(!cfg.token) throw new Error('Token GitHub belum diisi. Buka tab ⚙️ Pengaturan dahulu.');
+  const sha = await ghGetSha(path);
+  const body = { message, branch: cfg.branch, content: contentBase64 };
+  if(sha) body.sha = sha;
+  const res = await fetch(`https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/${path}`, {
+    method: 'PUT',
+    headers: { 'Authorization': `Bearer ${cfg.token}`, 'Accept': 'application/vnd.github+json', 'Content-Type': 'application/json' },
+    body: JSON.stringify(body)
+  });
+  if(!res.ok){
+    const j = await res.json().catch(()=>({}));
+    throw new Error(j.message || ('status '+res.status+' saat menyimpan '+path));
+  }
+  return res.json();
+}
+async function ghPutTeks(path, teks, message){
+  return ghPutFile(path, b64EncodeUnicode(teks), message);
+}
+
+/* ================= PRODUK ================= */
+const specDefaults = [
+  ['JenisBerlian','Natural Diamond'],
+  ['JumlahBerlian','+/- 0 pcs'],
+  ['BeratBerlian','+/- 0.00 karat'],
+  ['BahanRing','Palladium Silver'],
+  ['BeratTotal','+/- 0.00 gram']
+];
+function tambahBarisSpek(key='', val=''){
+  const wrap = document.getElementById('p_specRows');
+  const row = document.createElement('div');
+  row.className = 'spec-row';
+  row.innerHTML = `<input placeholder="Nama (contoh: JumlahBerlian)" class="spec-key" value="${escapeHtml(key)}">
+    <input placeholder="Nilai (contoh: +/- 12 pcs)" class="spec-val" value="${escapeHtml(val)}">
+    <button type="button" class="btn btn-light btn-small" onclick="this.parentElement.remove()"><i class="fa-solid fa-xmark"></i></button>`;
+  wrap.appendChild(row);
+}
+function isiSpekDefault(){
+  document.getElementById('p_specRows').innerHTML = '';
+  specDefaults.forEach(([k,v])=>tambahBarisSpek(k,v));
+}
+document.getElementById('p_sub').addEventListener('change', function(){
+  document.getElementById('p_subManual').style.display = this.value==='lainnya' ? 'block' : 'none';
+  perbaruiPathGambar();
+});
+document.getElementById('p_gambar').addEventListener('input', perbaruiPathGambar);
+function subAktifProduk(){
+  const sel = document.getElementById('p_sub').value;
+  return sel === 'lainnya' ? (document.getElementById('p_subManual').value.trim() || 'lainnya') : sel;
+}
+function perbaruiPathGambar(){
+  const file = document.getElementById('p_gambar').value.trim() || 'nama-file.jpg';
+  const sub = subAktifProduk();
+  document.getElementById('p_gambarPath').textContent =
+    `File gambar di atas nanti disimpan ke folder: images/produk/${sub}/${file} — pilih foto lewat tombol di atas supaya ikut terunggah otomatis.`;
+}
+
+/* Foto yang dipilih tapi belum diterbitkan, disimpan sementara di memori (per kode produk) */
+const pendingFotoProduk = {};
+let fotoTerpilihSaatIni = null;
+function pilihFotoProduk(input){
+  const file = input.files && input.files[0];
+  if(!file) return;
+  if(!document.getElementById('p_gambar').value.trim()){
+    document.getElementById('p_gambar').value = file.name;
+    perbaruiPathGambar();
+  }
+  const reader = new FileReader();
+  reader.onload = function(e){
+    const base64 = e.target.result.split(',')[1];
+    fotoTerpilihSaatIni = { namaFile: document.getElementById('p_gambar').value.trim() || file.name, base64 };
+    const prev = document.getElementById('p_gambarPreview');
+    prev.src = e.target.result;
+    prev.style.display = 'block';
+  };
+  reader.readAsDataURL(file);
+}
+
+function renderTabelProduk(){
+  const data = muatProduk();
+  document.getElementById('p_count').textContent = data.length;
+  document.getElementById('p_tableBody').innerHTML = data.map((p,i)=>`
+    <tr>
+      <td><img class="thumb" src="${escapeHtml(p.gambar)}" onerror="this.src='images/logo.png'"></td>
+      <td>${escapeHtml(p.kode)}</td>
+      <td>${escapeHtml(p.nama)}</td>
+      <td><span class="pill">${escapeHtml(p.subkategori||'-')}</span></td>
+      <td>${escapeHtml(p.harga)}</td>
+      <td>
+        <button class="btn btn-light btn-small" onclick="editProduk(${i})">Edit</button>
+        <button class="btn btn-danger btn-small" onclick="hapusProduk(${i})">Hapus</button>
+      </td>
+    </tr>`).join('');
+}
+function resetFormProduk(){
+  document.getElementById('p_editIndex').value = -1;
+  document.getElementById('produkFormTitle').textContent = 'Tambah Produk Baru';
+  document.getElementById('p_kode').value = nextKodeProduk(muatProduk());
+  document.getElementById('p_nama').value = '';
+  document.getElementById('p_sub').value = 'cincin';
+  document.getElementById('p_subManual').style.display = 'none';
+  document.getElementById('p_subManual').value = '';
+  document.getElementById('p_harga').value = '';
+  document.getElementById('p_gambar').value = '';
+  document.getElementById('p_deskripsi').value = '';
+  document.getElementById('p_gambarFile').value = '';
+  document.getElementById('p_gambarPreview').style.display = 'none';
+  fotoTerpilihSaatIni = null;
+  isiSpekDefault();
+  perbaruiPathGambar();
+}
+function editProduk(i){
+  const data = muatProduk();
+  const p = data[i];
+  document.getElementById('p_editIndex').value = i;
+  document.getElementById('produkFormTitle').textContent = 'Edit Produk: ' + p.nama;
+  document.getElementById('p_kode').value = p.kode;
+  document.getElementById('p_nama').value = p.nama;
+  const subKnown = ['cincin','kalung'].includes(p.subkategori);
+  document.getElementById('p_sub').value = subKnown ? p.subkategori : 'lainnya';
+  document.getElementById('p_subManual').style.display = subKnown ? 'none' : 'block';
+  document.getElementById('p_subManual').value = subKnown ? '' : (p.subkategori||'');
+  document.getElementById('p_harga').value = String(p.harga||'').replace(/[^0-9]/g,'');
+  document.getElementById('p_gambar').value = (p.gambar||'').split('/').pop();
+  document.getElementById('p_deskripsi').value = p.deskripsi || '';
+  document.getElementById('p_gambarFile').value = '';
+  fotoTerpilihSaatIni = null;
+  const prevEl = document.getElementById('p_gambarPreview');
+  if(p.gambar){ prevEl.src = p.gambar; prevEl.style.display = 'block'; } else { prevEl.style.display = 'none'; }
+  document.getElementById('p_specRows').innerHTML = '';
+  Object.entries(p.spesifikasi||{}).forEach(([k,v])=>tambahBarisSpek(k,v));
+  perbaruiPathGambar();
+  document.getElementById('tab-produk').scrollIntoView({behavior:'smooth'});
+}
+function hapusProduk(i){
+  if(!confirm('Hapus produk ini dari daftar?')) return;
+  const data = muatProduk();
+  data.splice(i,1);
+  simpanKeStorageProduk(data);
+  renderTabelProduk();
+}
+function simpanProduk(){
+  const nama = document.getElementById('p_nama').value.trim();
+  const kode = document.getElementById('p_kode').value.trim();
+  if(!nama || !kode){ alert('Kode dan Nama produk wajib diisi.'); return; }
+  const sub = subAktifProduk();
+  const file = document.getElementById('p_gambar').value.trim();
+  const spesifikasi = {};
+  document.querySelectorAll('#p_specRows .spec-row').forEach(row=>{
+    const k = row.querySelector('.spec-key').value.trim();
+    const v = row.querySelector('.spec-val').value.trim();
+    if(k) spesifikasi[k] = v;
+  });
+  const produkBaru = {
+    id: kode,
+    kode: kode,
+    nama: nama,
+    kategori: 'perhiasan',
+    subkategori: sub,
+    harga: formatRupiah(document.getElementById('p_harga').value) || document.getElementById('p_harga').value,
+    gambar: file ? `images/produk/${sub}/${file}` : '',
+    deskripsi: document.getElementById('p_deskripsi').value.trim(),
+    spesifikasi
+  };
+  if(fotoTerpilihSaatIni && produkBaru.gambar){
+    pendingFotoProduk[produkBaru.gambar] = fotoTerpilihSaatIni;
+  }
+  fotoTerpilihSaatIni = null;
+  const data = muatProduk();
+  const idx = parseInt(document.getElementById('p_editIndex').value,10);
+  if(idx>=0) data[idx] = produkBaru; else data.push(produkBaru);
+  simpanKeStorageProduk(data);
+  renderTabelProduk();
+  resetFormProduk();
+  const jumlahFotoBelumTerbit = Object.keys(pendingFotoProduk).length;
+  document.getElementById('p_statusTerbit').textContent = jumlahFotoBelumTerbit
+    ? `Produk tersimpan (${jumlahFotoBelumTerbit} foto belum diterbitkan). Lanjutkan menambah produk lain, atau klik "🚀 Terbitkan ke Website" jika sudah selesai.`
+    : 'Produk tersimpan. Lanjutkan menambah produk lain, atau klik "🚀 Terbitkan ke Website" jika sudah selesai.';
+}
+function unduhProduk(){
+  const data = muatProduk();
+  const isi = "const products = " + JSON.stringify(data, null, 4).replace(/"([A-Za-z0-9_]+)":/g,'$1:') + ";\n";
+  unduhFile('produk-data.js', isi);
+}
+async function terbitkanProduk(){
+  const status = document.getElementById('p_statusTerbit');
+  const cfg = ghConfig();
+  if(!cfg.token){ status.textContent = '❌ Belum tersambung ke GitHub. Buka tab ⚙️ Pengaturan dahulu, atau pakai tombol "Unduh" untuk cara manual.'; return; }
+  try{
+    const fotoList = Object.entries(pendingFotoProduk);
+    for(let i=0;i<fotoList.length;i++){
+      const [path, foto] = fotoList[i];
+      status.textContent = `Mengunggah foto ${i+1}/${fotoList.length}: ${path} ...`;
+      await ghPutFile(path, foto.base64, `Tambah/ubah foto produk (${path}) lewat panel admin`);
+    }
+    status.textContent = 'Menyimpan daftar produk (produk-data.js) ...';
+    const data = muatProduk();
+    const isi = "const products = " + JSON.stringify(data, null, 4).replace(/"([A-Za-z0-9_]+)":/g,'$1:') + ";\n";
+    await ghPutTeks('js/produk-data.js', isi, 'Update katalog produk lewat panel admin');
+    Object.keys(pendingFotoProduk).forEach(k=>delete pendingFotoProduk[k]);
+    status.textContent = `✅ Berhasil diterbitkan! (${fotoList.length} foto + daftar produk). Situs akan menampilkan perubahan dalam waktu singkat setelah refresh halaman.`;
+  }catch(err){
+    status.textContent = '❌ Gagal terbit: ' + err.message + ' — coba lagi, atau gunakan tombol "Unduh" untuk cara manual.';
+  }
+}
+function resetDataProduk(){
+  if(!confirm('Semua perubahan produk yang belum diunduh akan hilang dan kembali ke data situs semula. Lanjutkan?')) return;
+  localStorage.removeItem('mja_produk_data');
+  renderTabelProduk();
+}
+
+/* ================= AGENDA ================= */
+const daftarHari = [['senin','Senin'],['selasa','Selasa'],['rabu','Rabu'],['kamis','Kamis'],['jumat','Jumat'],['sabtu','Sabtu'],['minggu','Minggu']];
+function buatDayPicker(aktif='senin'){
+  const wrap = document.getElementById('a_dayPicker');
+  wrap.innerHTML = daftarHari.map(([val,label])=>`<button type="button" data-val="${val}" class="${val===aktif?'active':''}" onclick="pilihHari('${val}')">${label}</button>`).join('');
+}
+function pilihHari(val){
+  document.querySelectorAll('#a_dayPicker button').forEach(b=>b.classList.toggle('active', b.dataset.val===val));
+}
+function hariTerpilih(){
+  const btn = document.querySelector('#a_dayPicker button.active');
+  return btn ? btn.dataset.val : 'senin';
+}
+buatDayPicker();
+function ubahTipeAgenda(){
+  const tipe = document.querySelector('input[name="a_tipe"]:checked').value;
+  document.getElementById('a_mingguanBox').style.display = tipe==='mingguan' ? 'block' : 'none';
+  document.getElementById('a_sekaliBox').style.display = tipe==='sekali' ? 'block' : 'none';
+}
+document.getElementById('a_tag').addEventListener('change', function(){
+  document.getElementById('a_tagManual').style.display = this.value==='lainnya' ? 'block' : 'none';
+});
+function tagAktifAgenda(){
+  const sel = document.getElementById('a_tag').value;
+  return sel==='lainnya' ? (document.getElementById('a_tagManual').value.trim()||'Lainnya') : sel;
+}
+function renderTabelAgenda(){
+  const data = muatAgenda();
+  document.getElementById('a_count').textContent = data.length;
+  document.getElementById('a_tableBody').innerHTML = data.map((a,i)=>`
+    <tr>
+      <td>${a.tipe==='mingguan' ? '🔁 Setiap '+ (a.hari||'').replace(/^\w/,c=>c.toUpperCase()) : '📌 '+ (a.tanggal||'-')}</td>
+      <td>${escapeHtml(a.judul)}</td>
+      <td><span class="pill">${escapeHtml(a.tag||'-')}</span></td>
+      <td>
+        <button class="btn btn-light btn-small" onclick="editAgenda(${i})">Edit</button>
+        <button class="btn btn-danger btn-small" onclick="hapusAgenda(${i})">Hapus</button>
+      </td>
+    </tr>`).join('');
+}
+function nextIdAgenda(list){
+  let max=0; list.forEach(a=>{ const n=parseInt(String(a.id||'').replace(/\D/g,''),10); if(!isNaN(n)&&n>max) max=n; });
+  return 'AG'+String(max+1).padStart(3,'0');
+}
+function resetFormAgenda(){
+  document.getElementById('a_editIndex').value = -1;
+  document.getElementById('agendaFormTitle').textContent = 'Tambah Agenda Baru';
+  document.querySelector('input[name="a_tipe"][value="mingguan"]').checked = true;
+  ubahTipeAgenda();
+  buatDayPicker('senin');
+  document.getElementById('a_tanggal').value = '';
+  document.getElementById('a_tag').value = 'Pelatihan';
+  document.getElementById('a_tagManual').style.display='none';
+  document.getElementById('a_judul').value = '';
+  document.getElementById('a_deskripsi').value = '';
+  document.getElementById('a_tombolTeks').value = 'Hubungi Kami';
+  document.getElementById('a_tombolLink').value = 'index.html#contact';
+}
+function editAgenda(i){
+  const data = muatAgenda();
+  const a = data[i];
+  document.getElementById('a_editIndex').value = i;
+  document.getElementById('agendaFormTitle').textContent = 'Edit Agenda: ' + a.judul;
+  document.querySelector(`input[name="a_tipe"][value="${a.tipe}"]`).checked = true;
+  ubahTipeAgenda();
+  if(a.tipe==='mingguan') buatDayPicker(a.hari); else document.getElementById('a_tanggal').value = a.tanggal||'';
+  const tagKnown = ['Pelatihan','Seminar','Produk','Pengumuman'].includes(a.tag);
+  document.getElementById('a_tag').value = tagKnown ? a.tag : 'lainnya';
+  document.getElementById('a_tagManual').style.display = tagKnown ? 'none':'block';
+  document.getElementById('a_tagManual').value = tagKnown ? '' : (a.tag||'');
+  document.getElementById('a_judul').value = a.judul||'';
+  document.getElementById('a_deskripsi').value = a.deskripsi||'';
+  document.getElementById('a_tombolTeks').value = a.tombolTeks||'';
+  document.getElementById('a_tombolLink').value = a.tombolLink||'';
+  document.getElementById('tab-agenda').scrollIntoView({behavior:'smooth'});
+}
+function hapusAgenda(i){
+  if(!confirm('Hapus agenda ini?')) return;
+  const data = muatAgenda();
+  data.splice(i,1);
+  simpanKeStorageAgenda(data);
+  renderTabelAgenda();
+}
+function simpanAgenda(){
+  const judul = document.getElementById('a_judul').value.trim();
+  if(!judul){ alert('Judul agenda wajib diisi.'); return; }
+  const tipe = document.querySelector('input[name="a_tipe"]:checked').value;
+  const data = muatAgenda();
+  const idx = parseInt(document.getElementById('a_editIndex').value,10);
+  const agendaBaru = {
+    id: idx>=0 ? data[idx].id : nextIdAgenda(data),
+    tipe: tipe,
+    tag: tagAktifAgenda(),
+    judul: judul,
+    deskripsi: document.getElementById('a_deskripsi').value.trim(),
+    tombolTeks: document.getElementById('a_tombolTeks').value.trim(),
+    tombolLink: document.getElementById('a_tombolLink').value.trim()
+  };
+  if(tipe==='mingguan') agendaBaru.hari = hariTerpilih();
+  else agendaBaru.tanggal = document.getElementById('a_tanggal').value;
+  if(idx>=0) data[idx]=agendaBaru; else data.push(agendaBaru);
+  simpanKeStorageAgenda(data);
+  renderTabelAgenda();
+  resetFormAgenda();
+  alert('Agenda tersimpan. Lanjutkan menambah agenda lain, atau klik "Unduh agenda-data.js" jika sudah selesai.');
+}
+function unduhAgenda(){
+  const data = muatAgenda();
+  const isi = "const agendaItems = " + JSON.stringify(data, null, 4).replace(/"([A-Za-z0-9_]+)":/g,'$1:') + ";\n";
+  unduhFile('agenda-data.js', isi);
+}
+async function terbitkanAgenda(){
+  const status = document.getElementById('a_statusTerbit');
+  const cfg = ghConfig();
+  if(!cfg.token){ status.textContent = '❌ Belum tersambung ke GitHub. Buka tab ⚙️ Pengaturan dahulu, atau pakai tombol "Unduh" untuk cara manual.'; return; }
+  try{
+    status.textContent = 'Menyimpan agenda (agenda-data.js) ...';
+    const data = muatAgenda();
+    const isi = "const agendaItems = " + JSON.stringify(data, null, 4).replace(/"([A-Za-z0-9_]+)":/g,'$1:') + ";\n";
+    await ghPutTeks('js/agenda-data.js', isi, 'Update agenda lewat panel admin');
+    status.textContent = '✅ Berhasil diterbitkan! Situs akan menampilkan agenda terbaru dalam waktu singkat setelah refresh halaman.';
+  }catch(err){
+    status.textContent = '❌ Gagal terbit: ' + err.message + ' — coba lagi, atau gunakan tombol "Unduh" untuk cara manual.';
+  }
+}
+function resetDataAgenda(){
+  if(!confirm('Semua perubahan agenda yang belum diunduh akan hilang dan kembali ke data situs semula. Lanjutkan?')) return;
+  localStorage.removeItem('mja_agenda_data');
+  renderTabelAgenda();
+}
+
+/* ---------- UNDUH FILE ---------- */
+function unduhFile(nama, isi){
+  const blob = new Blob([isi], {type:'text/javascript'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = nama;
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+/* ---------- INIT ---------- */
+resetFormProduk();
+resetFormAgenda();
+renderTabelProduk();
+renderTabelAgenda();
+muatPengaturanGithub();
+</script>
+</body>
+</html>
