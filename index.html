@@ -3,20 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MJA Berlian | Official Website</title>
-    <meta name="description" content="MJA Berlian menghadirkan koleksi cincin dan kalung berlian berkualitas serta peluang bisnis terpercaya di Indonesia.">
+    <title>Produk | MJA Berlian</title>
+    <meta name="description" content="Katalog produk cincin dan kalung berlian MJA Berlian.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/produk.css">
 </head>
 <body>
-    <button id="backToTop" aria-label="Kembali ke atas">
-        <i class="fa-solid fa-arrow-up"></i>
-    </button>
-
     <header>
         <nav class="navbar">
             <div class="container navbar-container">
@@ -37,7 +34,7 @@
                     </li>
                     <li><a href="index.html#peluang">Bisnis</a></li>
                     <li class="dropdown">
-                        <a href="produk.html">Produk <i class="fa-solid fa-chevron-down"></i></a>
+                        <a href="produk.html" class="active">Produk <i class="fa-solid fa-chevron-down"></i></a>
                         <ul class="dropdown-menu">
                             <li><a href="produk.html">Semua Produk</a></li>
                             <li><a href="produk.html?kategori=perhiasan">Cincin & Kalung</a></li>
@@ -63,336 +60,57 @@
         </nav>
     </header>
 
-    <section class="hero" id="home">
-        <div class="hero-slider">
-            <div class="hero-top-text">Selamat Datang di</div>
-
-            <div class="hero-slide active">
-                <img src="images/hero1.jpg" data-src="images/hero1.jpg" alt="Koleksi berlian MJA">
-                <div class="hero-overlay"></div>
-                <div class="container">
-                    <div class="hero-content">
-                        <h1>MJA Berlian</h1>
-                        <p>Perusahaan terpercaya di bidang perhiasan berlian yang menghadirkan koleksi elegan dan peluang bisnis untuk masyarakat Indonesia.</p>
-                        <div class="hero-button">
-                            <a href="produk.html" class="primary-btn">Lihat Produk</a>
-                            <a href="#tentang" class="secondary-btn">Tentang Kami</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="hero-slide">
-                <img data-src="images/hero/hero3.jpg" alt="Peluang bisnis MJA Berlian" loading="lazy">
-                <div class="hero-overlay"></div>
-                <div class="container">
-                    <div class="hero-content">
-                        <span>Peluang Bisnis</span>
-                        <h1>Bangun Masa Depan Bersama Kami</h1>
-                        <p>Menjadi mitra MJA Berlian membuka kesempatan untuk bertumbuh melalui sistem bisnis yang profesional, fleksibel, dan terarah.</p>
-                        <div class="hero-button">
-                            <a href="https://forms.gle/EcQ9DQEofBSi8EZZ6" class="primary-btn" target="_blank" rel="noopener">Gabung Sekarang</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="hero-navigation">
-                <button class="hero-prev" aria-label="Slide sebelumnya"><i class="fa-solid fa-chevron-left"></i></button>
-                <button class="hero-next" aria-label="Slide berikutnya"><i class="fa-solid fa-chevron-right"></i></button>
-            </div>
-            <div class="hero-indicator" aria-hidden="true">
-                <span class="dot active"></span>
-                <span class="dot"></span>
-            </div>
-            <div class="hero-progress"><div class="progress-bar"></div></div>
-        </div>
-    </section>
-
-    <section class="exclusive-products" id="produk">
+    <section class="product-hero">
         <div class="container">
-            <div class="section-title">
-                <span>Produk Kami</span>
-                <h2>Koleksi Produk Eksklusif</h2>
-                <p>Temukan cincin dan kalung berlian berkualitas tinggi dengan desain elegan untuk momen istimewa.</p>
-            </div>
-
-            <div class="exclusive-grid">
-                <article class="exclusive-card large">
-                    <img src="images/produk/perhiasan.jpg" alt="Koleksi perhiasan berlian" loading="lazy">
-                    <div class="overlay"></div>
-                    <div class="card-content">
-                        <span class="product-label">Exclusive Collection</span>
-                        <h3>Koleksi Perhiasan</h3>
-                        <p>Berlian berkualitas dengan tampilan mewah, rapi, dan berkarakter.</p>
-                        <a href="produk.html?kategori=perhiasan" class="white-btn">Selengkapnya <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-                </article>
-
-                <div class="exclusive-right">
-                    <article class="exclusive-card small">
-                        <img src="images/produk/perhiasan2.jpg" alt="Cincin berlian elegan" loading="lazy">
-                        <div class="overlay"></div>
-                        <div class="card-content">
-                            <span class="product-label">Premium Design</span>
-                            <h3>Cincin Berlian</h3>
-                            <p>Desain elegan untuk penampilan yang percaya diri.</p>
-                            <a href="produk.html?kategori=perhiasan&sub=cincin" class="white-btn">Lihat Koleksi <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </article>
-
-                    <article class="exclusive-card small">
-                        <img src="images/produk/perhiasan3.jpg" alt="Kalung berlian eksklusif" loading="lazy">
-                        <div class="overlay"></div>
-                        <div class="card-content">
-                            <span class="product-label">Modern Luxury</span>
-                            <h3>Kalung Berlian</h3>
-                            <p>Sentuhan berkelas untuk berbagai momen spesial.</p>
-                            <a href="produk.html?kategori=perhiasan" class="white-btn">Lihat Koleksi <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </article>
-                </div>
+            <div class="product-hero-content">
+                <h1>Produk Kami</h1>
+                <p>
+                    <a href="index.html">Beranda</a>
+                    <i class="fa-solid fa-angle-right"></i>
+                    <span>Produk</span>
+                </p>
             </div>
         </div>
     </section>
 
-    <section class="best-products">
+    <section class="product-page">
         <div class="container">
-            <div class="best-header">
-                <div>
-                    <span>Produk Pilihan</span>
-                    <h2>Produk Terbaik Kami</h2>
-                </div>
-                <a href="produk.html" class="primary-btn">Semua Produk</a>
-            </div>
-            <div class="product-filter">
-                <button class="filter-btn active" data-filter="all">Semua</button>
-                <button class="filter-btn" data-filter="perhiasan">Cincin & Kalung</button>
-            </div>
-            <div id="productContainer" class="product-grid"></div>
-        </div>
-    </section>
-
-    <section class="business-opportunity" id="peluang">
-        <div class="container">
-            <div class="business-wrapper">
-                <div class="business-image">
-                    <img src="images/business/business.jpg" alt="Peluang bisnis MJA Berlian" loading="lazy">
-                </div>
-                <div class="business-content">
-                    <span>Peluang Bisnis</span>
-                    <h2>Ada Peluang Bisnis Bersama MJA Berlian</h2>
-                    <p>Raih penghasilan dengan sistem bisnis yang fleksibel dan dapat dijalankan dari rumah.</p>
-                    <p>Anda dapat memulai tanpa pengalaman khusus karena tim MJA Berlian menyediakan arahan, dukungan, dan pelatihan untuk membantu mitra berkembang.</p>
-                    <a href="#tentang" class="primary-btn">Cari Tahu Lebih Lanjut</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="about-section" id="tentang">
-        <div class="container">
-            <div class="section-title">
-                <span>Tentang Kami</span>
-                <h2>MJA Berlian</h2>
-            </div>
-
-            <div class="about-tabs" role="tablist">
-                <button class="tab-btn active" data-tab="profil">Profil</button>
-                <button class="tab-btn" data-tab="visi">Visi & Misi</button>
-                <button class="tab-btn" data-tab="business">Business</button>
-                <button class="tab-btn" data-tab="keunggulan">Keunggulan</button>
-            </div>
-
-            <div class="about-content">
-                <div class="tab-content active" id="profil">
-                    <div class="about-grid">
-                        <div class="about-text">
-                            <h2>Profil MJA Berlian</h2>
-                            <p>MJA Berlian adalah perusahaan berbasis sosial yang bergerak di bidang penjualan langsung dengan fokus pada perhiasan, aksesori berlian, dan gaya hidup modern.</p>
-                            <p>Melalui nilai kebersamaan dan pemberdayaan, kami berkomitmen membantu masyarakat membangun peluang ekonomi yang berkelanjutan.</p>
-                        </div>
-                        <div class="about-video">
-                            <iframe src="https://www.youtube.com/embed/y0AyQCRQ0devpL4s" title="Profil MJA Berlian" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="tab-content" id="visi">
-                    <div class="about-grid">
-                        <div class="about-text">
-                            <h2>Visi & Misi</h2>
-                            <p><strong>Visi:</strong></p>
-                            <p>Menjadi induk bisnis jaringan dengan basis sosial dan terdesentralisasi</p>
-                            
-                            <p><strong>Misi:</strong></p>
-                            <ul>
-                                <li>Mengembangkan mitra usaha yang menghasilkan pendapatan berkelanjutan.</li>
-                                <li>Menciptakan pemimpin yang militan, tangguh, kaya, dan dermawan.</li>
-                                <li>Membantu pemerintah dalam membuka peluang lapangan pekerjaan dan meningkatkan kesejahteraan masyarakat.</li>
-                                <li>Menyediakan solusi gaya hidup sehat dan modern kepada masyarakat.</li>
-                                <li>Memberikan pelatihan bisnis dan pengembangan sumber daya manusia yang berkualitas.</li>
+            <div class="product-layout">
+                <aside class="product-sidebar">
+                    <h3>Kategori Produk</h3>
+                    <ul class="category-list">
+                        <li><a href="produk.html" class="category-link" data-category="all">Semua Produk</a></li>
+                        <li>
+                            <a href="produk.html?kategori=perhiasan" class="category-link" data-category="perhiasan">Perhiasan</a>
+                            <ul class="subcategory">
+                                <li><a href="produk.html?kategori=perhiasan&sub=cincin">Cincin</a></li>
+                                <li><a href="produk.html?kategori=perhiasan&sub=kalung">Kalung</a></li>
                             </ul>
+                        </li>
+                    </ul>
+                </aside>
+
+                <div class="product-content">
+                    <div class="product-toolbar">
+                        <div class="toolbar-left">
+                            <div class="view-mode" aria-label="Mode tampilan">
+                                <button class="view-btn active" aria-label="Tampilan grid"><i class="fa-solid fa-grip"></i></button>
+                                <button class="view-btn" aria-label="Tampilan daftar"><i class="fa-solid fa-list"></i></button>
+                            </div>
+                            <p id="productCount">Menampilkan produk...</p>
                         </div>
-                        <div class="about-video">
-                            <iframe src="https://www.youtube.com/embed/8UnfY2LFmO0" title="Visi & Misi MJA Berlian" allowfullscreen></iframe>
+
+                        <div class="toolbar-right">
+                            <div class="search-box">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <input type="text" id="searchProduct" placeholder="Cari produk...">
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="tab-content" id="business">
-                    <div class="about-grid">
-                        <div class="about-text">
-                            <h2>Business</h2>
-                            <p>Dengan ekosistem bisnis yang inklusif dan sistematis, MJA Berlian menghadirkan peluang usaha yang dapat diakses oleh siapa pun—baik ibu rumah tangga, mahasiswa, karyawan, hingga pensiunan. Tak ada batasan usia, status, atau latar belakang.</p>
-                            
-                            <p>Fokus kami adalah membuka jalan bagi Anda untuk memperoleh penghasilan harian yang stabil, fleksibel, dan berkelanjutan.</p>
-                            
-                            <p>Melalui sistem penjualan yang terstruktur, produk unggulan yang berkualitas, serta program pengembangan diri yang dirancang khusus, kami mempermudah Anda untuk menjalankan bisnis tanpa harus meninggalkan rumah.</p>
-                            
-                            <p>Setiap anggota kami akan mendapatkan akses eksklusif ke materi pelatihan, strategi pemasaran, dan sesi konsultasi personal untuk mempercepat pertumbuhan bisnis.</p>
-                        </div>
-                        <div class="about-video">
-                            <iframe src="https://www.youtube.com/embed/AM5fbyiAXmE" title="Business MJA Berlian" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                </div>
+                    <div class="product-grid" id="productGrid"></div>
 
-                <div class="tab-content" id="keunggulan">
-                    <div class="about-grid">
-                        <div class="about-text">
-                            <h2>Keunggulan Kompetitif MJA Berlian</h2>
-                            
-                            <p><strong>Inovasi:</strong><br>
-                            Satu-satunya perusahaan network marketing yang memasarkan produk berlian asli alam dengan katalog series. Kami terus berupaya menghadirkan produk dan layanan terbaru yang memenuhi kebutuhan pasar secara umum.</p>
-                            
-                            <p><strong>Komitmen Sosial:</strong><br>
-                            Melalui MJA Foundation, kami memastikan bahwa sebagian besar keuntungan digunakan untuk membantu masyarakat, khususnya bagi yang kurang mampu.</p>
-                            
-                            <p><strong>Transparansi:</strong><br>
-                            Kami menjunjung tinggi standar transparansi dalam setiap aspek operasional kami.</p>
-                        </div>
-                        <div class="about-video">
-                            <iframe src="https://www.youtube.com/embed/LBY1ZmIRr4A" title="Keunggulan MJA Berlian" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="why-join">
-        <div class="container">
-            <div class="section-title">
-                <span>Mengapa Memilih Kami</span>
-                <h2>Mengapa Anda Harus Bergabung Bersama Kami</h2>
-                <p>Di MJA Berlian, Anda tidak berjalan sendiri. Kami tumbuh bersama melalui produk berkualitas, pelatihan, dan sistem bisnis yang jelas.</p>
-            </div>
-
-            <div class="join-grid">
-                <div class="join-card">
-                    <i class="fa-solid fa-chart-line"></i>
-                    <h3>Konsep Marketing</h3>
-                    <p>Sistem bisnis jangka panjang yang membantu mitra membangun peluang secara bertahap.</p>
-                </div>
-                <div class="join-card">
-                    <i class="fa-solid fa-briefcase"></i>
-                    <h3>Peluang Bisnis Baru</h3>
-                    <p>Pasar produk premium terus berkembang dan memberi ruang bagi mitra yang konsisten.</p>
-                </div>
-                <div class="join-card">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                    <h3>Pelatihan Bisnis</h3>
-                    <p>Program pendampingan membantu mitra memahami produk, pemasaran, dan pengembangan jaringan.</p>
-                </div>
-                <div class="join-card">
-                    <i class="fa-solid fa-gem"></i>
-                    <h3>Koleksi Eksklusif</h3>
-                    <p>Produk berlian dengan desain elegan untuk gaya hidup modern dan berkelas.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="testimonial-section">
-        <div class="container">
-            <div class="section-title">
-                <span>Testimoni</span>
-                <h2>Apa Kata Mitra Kami</h2>
-            </div>
-            <div class="testimonial-slider" id="testimonialSlider"></div>
-        </div>
-    </section>
-
-    <section class="join-banner">
-        <div class="container">
-            <div class="join-banner-content">
-                <span class="join-subtitle">Bergabung Bersama Kami</span>
-                <h2>Belum Terdaftar Sebagai Mitra MJA Berlian?</h2>
-                <p>Konsultasikan kebutuhan bisnis Anda bersama tim kami dan temukan peluang usaha yang sesuai dengan minat serta kemampuan Anda.</p>
-                <a href="https://wa.me/6289609905006?text=Halo%20Admin%20MJA%20Berlian,%20Saya%20ingin%20bergabung%20menjadi%20mitra." target="_blank" rel="noopener" class="primary-btn">
-                    <i class="fa-brands fa-whatsapp"></i> Konsultasikan Dengan Kami
-                </a>
-                <a href="https://forms.gle/EcQ9DQEofBSi8EZZ6" target="_blank" rel="noopener" class="secondary-btn">
-                    <i class="fa-solid fa-user"></i> Daftar Sebagai Mitra
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section class="contact-section" id="contact">
-        <div class="container">
-            <div class="section-title">
-                <span>Hubungi Kami</span>
-                <h2>Terhubung Bersama Kami</h2>
-                <p>Tim MJA Berlian siap membantu Anda mengenai produk, peluang bisnis, maupun kemitraan.</p>
-            </div>
-
-            <div class="contact-wrapper">
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="nama">Nama Lengkap</label>
-                            <input type="text" id="nama" placeholder="Masukkan nama lengkap">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" placeholder="email@gmail.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">No. Handphone</label>
-                            <input type="text" id="phone" placeholder="08xxxxxxxxxx">
-                        </div>
-                        <div class="form-group">
-                            <label for="pesan">Pesan</label>
-                            <textarea id="pesan" rows="6" placeholder="Tulis pesan Anda..."></textarea>
-                        </div>
-                        <button type="submit" class="primary-btn">Kirim Pesan</button>
-                    </form>
-                </div>
-
-                <div class="contact-info">
-                    <div class="info-card">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <h3>Kantor Pusat</h3>
-                        <p>Jl. Kebun Karet No.35 A, Loktabat Utara, Banjarbaru, Kalimantan Selatan</p>
-                    </div>
-                    <div class="info-card">
-                        <i class="fa-solid fa-phone"></i>
-                        <h3>Telepon</h3>
-                        <p>(+62) 896-0990-5006</p>
-                    </div>
-                    <div class="info-card">
-                        <i class="fa-solid fa-envelope"></i>
-                        <h3>Email</h3>
-                        <p>info@mjaberlian.com</p>
-                    </div>
-                    <div class="social-media">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                    </div>
+                    <div class="pagination" id="pagination"></div>
                 </div>
             </div>
         </div>
@@ -434,7 +152,12 @@
         </div>
     </footer>
 
-    <script src="js/produk-data.js"></script>
+    <button id="backToTop" aria-label="Kembali ke atas">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script>document.write('<script src="js/produk-data.js?v=' + Date.now() + '"><\/script>');</script>
+    <script src="js/produk.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
