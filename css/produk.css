@@ -2,26 +2,11 @@
                     PRODUK PAGE
 ========================================================== */
 
+/* Warna, radius, dan shadow dipakai bersama dari css/style.css (:root)
+   supaya halaman Produk & Beranda selalu senada. --bg tetap disediakan
+   di sini karena beberapa aturan di bawah masih memakainya. */
 :root{
-
-    --primary:#0B4C84;
-
-    --secondary:#FDB913;
-
-    --dark:#1B1B1B;
-
-    --text:#555;
-
-    --border:#EAEAEA;
-
-    --white:#FFFFFF;
-
-    --bg:#F8FAFC;
-
-    --radius:18px;
-
-    --shadow:0 15px 40px rgba(0,0,0,.08);
-
+    --bg:var(--background);
 }
 
 
@@ -533,6 +518,20 @@
 
 }
 
+
+/* ==========================================================
+                    SPEC MINI (info singkat di kartu katalog)
+========================================================== */
+
+.product-spec-mini{
+
+    font-size:13px;
+
+    color:#888;
+
+    margin:2px 0 8px;
+
+}
 
 /* ==========================================================
                     PRICE
