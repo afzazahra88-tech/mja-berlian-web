@@ -18,5 +18,15 @@ const agendaItems = [
         deskripsi: "Informasi peluncuran koleksi cincin dan kalung berlian terbaru akan diperbarui pada halaman ini.",
         tombolTeks: "Lihat Produk",
         tombolLink: "produk.html"
+    },
+    {
+        id: "AG004",
+        tipe: "mingguan",
+        tag: "Pengumuman",
+        judul: "g",
+        deskripsi: "n",
+        tombolTeks: "Hubungi Kami",
+        tombolLink: "index.html#contact",
+        hari: "minggu"
     }
 ];
