@@ -67,7 +67,6 @@ const products = [
             BeratTotal: "+/- 8.00 gram"
         }
     },
-    
     {
         id: "PD0031",
         kode: "PD0031",
@@ -102,7 +101,6 @@ const products = [
             BeratTotal: "+/- 4.41 gram"
         }
     },
-    
     {
         id: "PD0033",
         kode: "PD0033",
@@ -137,7 +135,6 @@ const products = [
             BeratTotal: "+/- 4.00 gram"
         }
     },
-    
     {
         id: "PD0035",
         kode: "PD0035",
@@ -172,7 +169,6 @@ const products = [
             BeratTotal: "+/- 5.00 gram"
         }
     },
-    
     {
         id: "PD0044",
         kode: "PD0044",
@@ -207,7 +203,6 @@ const products = [
             BeratTotal: "+/- 5.00 gram"
         }
     },
-    
     {
         id: "PD0039",
         kode: "PD0039",
@@ -259,7 +254,6 @@ const products = [
             BeratTotal: "+/- 3.00 gram"
         }
     },
-    
     {
         id: "PD0057",
         kode: "PD0057",
@@ -311,4 +305,89 @@ const products = [
             BeratTotal: "+/- 5.00 gram"
         }
     },
+    {
+        id: "PD0045",
+        kode: "PD0045",
+        nama: "HIGH MAN 02",
+        kategori: "perhiasan",
+        subkategori: "cincin",
+        harga: "Rp 9.800.000",
+        gambar: "images/produk/cincin/HIGHMAN02.jpg",
+        deskripsi: "Cincin untuk kaum pria yang indah, simpel, nampak tegas dan kokoh, cincin ini membawa citra menawan ala para bangsawan klasik. Cocok digunakan oleh para eksekutif senior dan pebisnis, dari semua level umur.",
+        spesifikasi: {
+            JenisBerlian: "Natural Diamond",
+            JumlahBerlian: "+/- 26 pcs",
+            BeratBerlian: "+/- 1.00 karat",
+            BahanRing: "Palladium Silver",
+            BeratTotal: "+/- 13.00 gram"
+        }
+    },
+    {
+        id: "PD0047",
+        kode: "PD0047",
+        nama: "HIGH MAN 03",
+        kategori: "perhiasan",
+        subkategori: "cincin",
+        harga: "Rp 9.800.000",
+        gambar: "images/produk/cincin/highman03.jpg",
+        deskripsi: "Cincin untuk kaum pria yang indah, simpel, nampak tegas dan kokoh, cincin ini membawa citra menawan ala para bangsawan klasik. Cocok digunakan oleh para eksekutif senior dan pebisnis, dari semua level umur.",
+        spesifikasi: {
+            JenisBerlian: "Natural Diamond",
+            JumlahBerlian: "+/- 39 pcs",
+            BeratBerlian: "+/- 1.82 karat",
+            BahanRing: "Palladium Silver",
+            BeratTotal: "+/- 13.07 gram"
+        }
+    },
+    {
+        id: "PD0048",
+        kode: "PD0048",
+        nama: "HIGH MAN 04",
+        kategori: "perhiasan",
+        subkategori: "cincin",
+        harga: "Rp 9.800.000",
+        gambar: "images/produk/cincin/highman04.jpg",
+        deskripsi: "Cincin untuk kaum pria yang indah, simpel, nampak tegas dan kokoh, cincin ini membawa citra menawan ala para bangsawan klasik. Cocok digunakan oleh para eksekutif senior dan pebisnis, dari semua level umur.",
+        spesifikasi: {
+            JenisBerlian: "Natural Diamond",
+            JumlahBerlian: "+/- 39 pcs",
+            BeratBerlian: "+/- 1.82 karat",
+            BahanRing: "Palladium Silver",
+            BeratTotal: "+/- 13.07 gram"
+        }
+    },
+    {
+        id: "PD0049",
+        kode: "PD0049",
+        nama: "HIGH MAN 05",
+        kategori: "perhiasan",
+        subkategori: "cincin",
+        harga: "Rp 9.800.000",
+        gambar: "images/produk/cincin/highman05.jpg",
+        deskripsi: "Cincin untuk kaum pria yang indah, simpel, nampak tegas dan kokoh, cincin berlogo MJA ini melambangkan kesuksesan dan kebersamaan seperti semangat yang diusung oleh MJA sendiri. Cocok digunakan oleh para eksekutif dan pebisnis, dari semua level umur.",
+        spesifikasi: {
+            JenisBerlian: "Natural Diamond",
+            JumlahBerlian: "+/- 45 pcs",
+            BeratBerlian: "+/- 1.50 karat",
+            BahanRing: "Palladium Silver",
+            BeratTotal: "+/- 11.45 gram"
+        }
+    },
+    {
+        id: "PD0050",
+        kode: "PD0050",
+        nama: "HIGH MAN 06",
+        kategori: "perhiasan",
+        subkategori: "cincin",
+        harga: "Rp 9.800.000",
+        gambar: "images/produk/cincin/highman06.jpg",
+        deskripsi: "Cincin untuk kaum pria yang indah, simpel, nampak tegas dan kokoh. Cocok digunakan oleh para eksekutif dan pebisnis, dari semua level umur.",
+        spesifikasi: {
+            JenisBerlian: "Natural Diamond",
+            JumlahBerlian: "+/- 41 pcs",
+            BeratBerlian: "+/- 1.50 karat",
+            BahanRing: "Palladium Silver",
+            BeratTotal: "+/- 10.00 gram"
+        }
+    }
 ];
