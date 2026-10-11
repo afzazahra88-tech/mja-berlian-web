@@ -389,5 +389,39 @@ const products = [
             BahanRing: "Palladium Silver",
             BeratTotal: "+/- 10.00 gram"
         }
+    },
+    {
+        id: "PD0043",
+        kode: "PD0043",
+        nama: "GIWANG PREMIUM 01",
+        kategori: "perhiasan",
+        subkategori: "cincin",
+        harga: "Rp 7.800.000",
+        gambar: "images/produk/cincin/giwangpremium01.jpg",
+        deskripsi: "Giwang berlian untuk wanita yang simpel dan nampak indah, dengan taburan berlian diseluruh permukaannya cocok digunakan digunakan disetiap waktu dan tempat, Giwang ini sangat pas digunakan oleh para wanita karir, pebisnis, ataupun eksekutif senior.",
+        spesifikasi: {
+            JenisBerlian: "Natural Diamond",
+            JumlahBerlian: "+/- 46 pcs",
+            BeratBerlian: "+/- 0.60 karat",
+            BahanRing: "Palladium Silver",
+            BeratTotal: "+/- 4.50 Gram"
+        }
+    },
+    {
+        id: "PD0053",
+        kode: "PD0053",
+        nama: "HIGH LADY 03",
+        kategori: "perhiasan",
+        subkategori: "cincin",
+        harga: "Rp 9.800.000",
+        gambar: "images/produk/cincin/highlady03.jpg",
+        deskripsi: "Cincin berlian untuk wanita yang indah mempesona dengan motif tetes air bertingkat, cocok digunakan dalam menghadiri kegiatan penting dan pesta, cincin ini sangat pas digunakan oleh para wanita karir dan ibu rumah tangga.",
+        spesifikasi: {
+            JenisBerlian: "Natural Diamond",
+            JumlahBerlian: "+/- 77 pcs",
+            BeratBerlian: "+/- 1.25 karat",
+            BahanRing: "Palladium Silver",
+            BeratTotal: "+/- 6.803 gram"
+        }
     }
 ];
