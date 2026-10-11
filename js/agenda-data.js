@@ -10,6 +10,16 @@ const agendaItems = [
         tombolLink: "index.html#contact"
     },
     {
+        id: "AG002",
+        tipe: "sekali",
+        tanggal: "2026-07-25",
+        tag: "Seminar",
+        judul: "Seminar Karir dan Peluang Bisnis",
+        deskripsi: "Acara pengenalan peluang kemitraan MJA Berlian untuk calon mitra yang ingin memahami sistem bisnis, produk, dan dukungan pelatihan.",
+        tombolTeks: "Daftar Acara",
+        tombolLink: "https://forms.gle/EcQ9DQEofBSi8EZZ6"
+    },
+    {
         id: "AG003",
         tipe: "sekali",
         tanggal: "2026-08-10",
@@ -18,15 +28,5 @@ const agendaItems = [
         deskripsi: "Informasi peluncuran koleksi cincin dan kalung berlian terbaru akan diperbarui pada halaman ini.",
         tombolTeks: "Lihat Produk",
         tombolLink: "produk.html"
-    },
-    {
-        id: "AG004",
-        tipe: "mingguan",
-        tag: "Pengumuman",
-        judul: "g",
-        deskripsi: "n",
-        tombolTeks: "Hubungi Kami",
-        tombolLink: "index.html#contact",
-        hari: "minggu"
     }
 ];
