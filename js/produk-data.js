@@ -423,5 +423,73 @@ const products = [
             BahanRing: "Palladium Silver",
             BeratTotal: "+/- 6.803 gram"
         }
+    },
+    {
+        id: "PD0056",
+        kode: "PD0056",
+        nama: "HIGH LADY 06",
+        kategori: "perhiasan",
+        subkategori: "cincin",
+        harga: "Rp 9.800.000",
+        gambar: "images/produk/cincin/highlady06.jpg",
+        deskripsi: "Cincin berlian untuk wanita yang indah mempesona, cocok digunakan dalam menghadiri kegiatan penting dan pesta, cincin ini sangat pas digunakan oleh para wanita karir dan ibu rumah tangga.",
+        spesifikasi: {
+            JenisBerlian: "Natural Diamond",
+            JumlahBerlian: "+/- 87 pcs",
+            BeratBerlian: "+/- 1.25 karat",
+            BahanRing: "Palladium Silver",
+            BeratTotal: "+/- 8.00 gram"
+        }
+    },
+    {
+        id: "PD0055",
+        kode: "PD0055",
+        nama: "HIGH LADY 05",
+        kategori: "perhiasan",
+        subkategori: "cincin",
+        harga: "Rp 9.800.000",
+        gambar: "images/produk/cincin/highlady05.jpg",
+        deskripsi: "Cincin berlian untuk wanita yang indah mempesona, cocok digunakan dalam menghadiri kegiatan penting dan pesta, cincin ini sangat pas digunakan oleh para wanita karir dan ibu rumah tangga.",
+        spesifikasi: {
+            JenisBerlian: "Natural Diamond",
+            JumlahBerlian: "+/- 29 pcs",
+            BeratBerlian: "+/- 1.00 karat",
+            BahanRing: "Palladium Silver",
+            BeratTotal: "+/- 5.19 gram"
+        }
+    },
+    {
+        id: "PD0054",
+        kode: "PD0054",
+        nama: "HIGH LADY 04",
+        kategori: "perhiasan",
+        subkategori: "cincin",
+        harga: "Rp 9.800.000",
+        gambar: "images/produk/cincin/highlady04.jpg",
+        deskripsi: "Cincin berlian untuk wanita yang indah mempesona, cocok digunakan dalam menghadiri kegiatan penting dan pesta, cincin ini sangat pas digunakan oleh para wanita karir dan ibu rumah tangga.",
+        spesifikasi: {
+            JenisBerlian: "Natural Diamond",
+            JumlahBerlian: "+/- 29 pcs",
+            BeratBerlian: "+/- 1.00 karat",
+            BahanRing: "Palladium Silver",
+            BeratTotal: "+/- 5.19 gram"
+        }
+    },
+    {
+        id: "PD0052",
+        kode: "PD0052",
+        nama: "HIGH LADY 02",
+        kategori: "perhiasan",
+        subkategori: "cincin",
+        harga: "Rp 9.800.000",
+        gambar: "images/produk/cincin/highlady02.jpg",
+        deskripsi: "Cincin berlian untuk wanita yang indah mempesona, cocok digunakan dalam menghadiri kegiatan penting dan pesta, cincin ini sangat pas digunakan oleh para wanita karir dan ibu rumah tangga.",
+        spesifikasi: {
+            JenisBerlian: "Natural Diamond",
+            JumlahBerlian: "+/- 97 pcs",
+            BeratBerlian: "+/- 1.00 karat",
+            BahanRing: "Palladium Silver",
+            BeratTotal: "+/- 7.892 gram"
+        }
     }
 ];
